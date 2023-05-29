@@ -2,7 +2,7 @@ import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/navbar/navabar";
 import Footer from "./components/footer/footer";
-import GiArea from "./components/home/gi_area";
+import Home from "./components/home/home";
 
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
 
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<GiArea />} />
+          <Route path="/" element={<Home />} />
         </Routes>
       </BrowserRouter>
 
