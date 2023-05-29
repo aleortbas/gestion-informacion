@@ -1,0 +1,64 @@
+.navbar {
+    background-color: #729351;
+  }
+  
+  .navbar-brand img {
+    height: 40px;
+    width: auto;
+  }
+  
+  .navbar-nav .nav-link {
+    color: white;
+    padding: 10px 15px;
+  }
+  
+  .navbar-nav .nav-link:hover {
+    background-color: #8da170;
+    color: white;
+    border-radius: 15%;
+    transition: all 0.8s;
+  }
+  
+  .navbar-toggler {
+    border-color: #a5b891;
+  }
+  
+  .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(165, 184, 145, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+  }
+  
+  .navbar-nav .nav-link i {
+    margin-right: 5px;
+  }
+  
+  @media (max-width: 991.98px) {
+    .navbar-collapse {
+      background-color: #729351;
+    }
+  
+    .navbar-nav .nav-link {
+      color: white;
+      padding: 10px;
+      border-radius: 0;
+      border-bottom: solid 1px rgba(255, 255, 255, 0.1);
+    }
+  
+    .navbar-nav .nav-link:last-child {
+      border-bottom: none;
+    }
+  
+    .navbar-toggler {
+      margin-right: 0;
+    }
+  }
+  
+  a.nav-link,
+  .nav-link {
+    color: #fff;
+  }
+  
+  a.nav-link,
+  .nav-link:hover {
+    color: #fff;
+  }
+  
