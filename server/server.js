@@ -20,6 +20,8 @@ app.get("/area", async function (req, res) {
   }
 });
 
+app.post("/anadirEmpresa", async (res, resp) => {});
+
 app.listen(5000, function (params) {
   console.log("Server started");
 });
