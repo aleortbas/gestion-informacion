@@ -5,7 +5,7 @@ function Area() {
   const [data, setData] = useState([]);
   const [showElement, setShowElement] = useState(false);
 
-  const [selectEmpresa, setIdEmpresa] = useState(null);
+  const [selectEmpresa, setIdEmpresa] = useState("");
   const [selectNombreEmpresa, setNombreEmpresa] = useState(null);
   const [selectCodUnidad, setCodUnidad] = useState(null);
   const [selectNombreUnidad, setnombreUnidad] = useState(null);
@@ -29,6 +29,30 @@ function Area() {
     console.log(item);
   };
 
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    try {
+      let res = await axios.post("http://localhost:5000/anadirEmpresa", {
+        cod_empresa: selectEmpresa,
+        nombre_empresa: selectNombreEmpresa,
+        cod_unidad: selectCodUnidad,
+        nombre_unidad: selectNombreUnidad,
+        cod_area: selectCodArea,
+        nombre_area: selectNombreArea,
+        id_subarea: selectIdSubarea,
+        nombre_subarea: selectNombreSubarea,
+      });
+      if (res.status === 200) {
+        setIdEmpresa("");
+      } else {
+        console.log("MALOOOOO MALOOOOO");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
     fetchData();
   }, []);
@@ -48,9 +72,7 @@ function Area() {
         <div className="col-3">
           <form method="post" action="anadirArea">
             <div class="form-group">
-              <label class="form-label" for="inputArea">
-                Codigo del area
-              </label>
+              <label class="form-label">Codigo del area</label>
               <input
                 type="text"
                 class="form-control"
@@ -64,9 +86,7 @@ function Area() {
             </div>
 
             <div class="form-group">
-              <label class="form-label" for="inputNombre">
-                Nombre del area
-              </label>
+              <label class="form-label">Nombre del area</label>
               <input
                 type="text"
                 class="form-control"
@@ -76,9 +96,7 @@ function Area() {
               />
             </div>
             <div class="form-group">
-              <label class="form-label" for="inputGerencia">
-                Gerencia
-              </label>
+              <label class="form-label">Gerencia</label>
               <input
                 type="text"
                 class="form-control"
@@ -124,7 +142,7 @@ function Area() {
                         type="submit"
                         class="btn red"
                         id="areaButton"
-                        onclick="eliminarTest()"
+                        onClick="eliminarTest()"
                       >
                         Elimnar
                       </button>
@@ -150,25 +168,24 @@ function Area() {
           <div class="col-12 anadir-area">
             <form
               method="post"
-              action="anadirArea"
               className="formularioEmpresa"
-              onSubmit="{handleSubmit}"
+              onSubmit={handleSubmit}
             >
               <h5>Formato de edicion</h5>
 
               <div className="row">
                 <div className="col-6">
                   <div class="form-group">
-                    <label class="form-label" for="codigoArea">
-                      Codigo de la empresa
-                    </label>
+                    <label class="form-label">Codigo de la empresa</label>
                     <input
                       type="text"
                       class="form-control"
-                      id="idArea"
+                      id="cod_empresa"
                       placeholder="Id empresa"
-                      name="idEmpresa"
+                      name="cod_empresa"
                       value={selectEmpresa}
+                      onChange={(e) => setIdEmpresa(e.target.value)}
+                      readOnly
                     />
                     <small class="form-text text-muted">
                       Debe de ser el codigo que se encuentra en listado Excel de
@@ -178,16 +195,15 @@ function Area() {
                 </div>
                 <div className="col-6">
                   <div class="form-group">
-                    <label class="form-label" for="nombreArea">
-                      Nombre de la empresa
-                    </label>
+                    <label class="form-label">Nombre de la empresa</label>
                     <input
                       type="text"
                       class="form-control"
-                      id="nombreEmpresa"
+                      id="nombre_empresa"
                       placeholder="Nombre Empresa"
-                      name="nombreEmpresa"
+                      name="nombre_empresa"
                       value={selectNombreEmpresa}
+                      onChange={(e) => setNombreEmpresa(e.target.value)}
                     />
                   </div>
                 </div>
@@ -196,31 +212,29 @@ function Area() {
               <div className="row">
                 <div className="col-6">
                   <div class="form-group">
-                    <label class="form-label" for="codUnidad">
-                      Codigo unidad
-                    </label>
+                    <label class="form-label">Codigo unidad</label>
                     <input
                       type="text"
                       class="form-control"
                       id="codUnidad"
                       placeholder="Codigo de la unidad"
-                      name="codUnidad"
+                      name="cod_unidad"
                       value={selectCodArea}
+                      onChange={(e) => setCodArea(e.target.value)}
                     />
                   </div>
                 </div>
                 <div className="col-6">
                   <div class="form-group">
-                    <label class="form-label" for="nombreUnidad">
-                      Nombre unidad
-                    </label>
+                    <label class="form-label">Nombre unidad</label>
                     <input
                       type="text"
                       class="form-control"
-                      id="nombreUnidad"
+                      id="nombre_unidad"
                       placeholder="Nombre unidad"
-                      name="nombreUnidad"
+                      name="nombre_unidad"
                       value={selectNombreUnidad}
+                      onChange={(e) => setnombreUnidad(e.target.value)}
                     />
                   </div>
                 </div>
@@ -229,31 +243,29 @@ function Area() {
               <div className="row">
                 <div className="col-6">
                   <div class="form-group">
-                    <label class="form-label" for="codArea">
-                      Codigo area
-                    </label>
+                    <label class="form-label">Codigo area</label>
                     <input
                       type="text"
                       class="form-control"
                       id="codArea"
                       placeholder="Codigo del area"
-                      name="codArea"
+                      name="cod_area"
                       value={selectCodArea}
+                      onChange={(e) => setCodArea(e.target.value)}
                     />
                   </div>
                 </div>
                 <div className="col-6">
                   <div class="form-group">
-                    <label class="form-label" for="nombreArea">
-                      Nombre del area
-                    </label>
+                    <label class="form-label">Nombre del area</label>
                     <input
                       type="text"
                       class="form-control"
-                      id="nombreArea"
+                      id="nombre_area"
                       placeholder="nombreArea"
-                      name="nombreArea"
+                      name="nombre_area"
                       value={selectNombreArea}
+                      onChange={(e) => setNombreArea(e.target.value)}
                     />
                   </div>
                 </div>
@@ -262,31 +274,29 @@ function Area() {
               <div className="row">
                 <div className="col-6">
                   <div class="form-group">
-                    <label class="form-label" for="idSubarea">
-                      Id subarea
-                    </label>
+                    <label class="form-label">Id subarea</label>
                     <input
                       type="text"
                       class="form-control"
                       id="idSubarea"
                       placeholder="Id subarea"
-                      name="idSubarea"
+                      name="id_subarea"
                       value={selectIdSubarea}
+                      onChange={(e) => setIdSubarea(e.target.value)}
                     />
                   </div>
                 </div>
                 <div className="col-6">
                   <div class="form-group">
-                    <label class="form-label" for="nombreSubarea">
-                      Nombre subarea
-                    </label>
+                    <label class="form-label">Nombre subarea</label>
                     <input
                       type="text"
                       class="form-control"
-                      id="nombreSubarea"
+                      id="nombre_subarea"
                       placeholder="Nombre subarea"
-                      name="nombreSubarea"
+                      name="nombre_subarea"
                       value={selectIdSubarea}
+                      onChange={(e) => setNombreSubarea(e.target.value)}
                     />
                   </div>
                 </div>
