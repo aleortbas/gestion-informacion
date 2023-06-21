@@ -49,7 +49,7 @@ function Home() {
                 Sección de gestión de clientes: Agrega y edita clientes de la
                 plataforma.
               </p>
-              <a href="/clientes" className="btn btn-paginas">
+              <a href="/cliente" className="btn btn-paginas">
                 Abrir
               </a>
             </div>

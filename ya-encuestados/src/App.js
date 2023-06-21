@@ -4,6 +4,7 @@ import Navbar from "./components/navbar/navabar";
 import Footer from "./components/footer/footer";
 import Home from "./components/home/home";
 import Area from "./components/area/area";
+import Cliente from "./components/cliente/cliente";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/area" element={<Area />} />
+          <Route path="/cliente" element={<Cliente />} />
         </Routes>
       </BrowserRouter>
 

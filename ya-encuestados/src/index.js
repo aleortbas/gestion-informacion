@@ -5,6 +5,7 @@ import "./components/navbar/navabar.css";
 import "./components/footer/footer.css";
 import "./components/home/home.css";
 import "./components/area/area.css";
+import "./components/cliente/cliente.css"
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
