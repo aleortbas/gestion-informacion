@@ -112,6 +112,18 @@ app.post("/anadiCliente", async function (req, res) {
   }
 })
 
+app.delete("/eliminarCliente/:email", async function (req, res) {
+  const email_cliente = req.params.email;
+  try {
+    let res = await pool
+      .request()
+      .input("email", email_cliente)
+      .query("DELETE FROM [dbo].[gi_cliente] WHERE email_cliente = @email")
+  } catch (error) {
+    console.log(error)
+  }
+})
+
 app.listen(5000, function (params) {
   console.log("Server started");
 });
