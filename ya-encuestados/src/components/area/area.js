@@ -45,8 +45,6 @@ function Area() {
       });
       if (res.status === 200) {
         setIdEmpresa("");
-      } else {
-        console.log("MALOOOOO MALOOOOO");
       }
     } catch (error) {
       console.log(error);

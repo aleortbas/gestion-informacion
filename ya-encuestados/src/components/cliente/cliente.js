@@ -4,13 +4,7 @@ import axios from "axios"
 function Cliente() {
 
     const [data, setData] = useState([]);
-
-    const [showElement, setShowElement] = useState(false);
-
     const [email_cliente, setEmailCliente] = useState(null);
-    const [nombre_responsable, setNombreResponsable] = useState(null);
-    const [cod_puesto, setCodPuesto] = useState(null);
-    const [nombre_puesto, setNombrePuesto] = useState(null);
 
     useEffect(() => {
         fetchData();
