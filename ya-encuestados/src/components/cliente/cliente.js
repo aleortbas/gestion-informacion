@@ -4,7 +4,13 @@ import axios from "axios"
 function Cliente() {
 
     const [data, setData] = useState([]);
+
+    const [showElement, setShowElement] = useState(false);
+
     const [email_cliente, setEmailCliente] = useState(null);
+    const [nombre_responsable, setNombreResponsable] = useState(null);
+    const [cod_puesto, setCodPuesto] = useState(null);
+    const [nombre_puesto, setNombrePuesto] = useState(null);
 
     useEffect(() => {
         fetchData();
@@ -20,6 +26,7 @@ function Cliente() {
     }
 
     const handleSubmitCliente = async (event, endpoint) => {
+
         event.preventDefault();
 
         try {
@@ -33,6 +40,19 @@ function Cliente() {
             }
         } catch (error) {
 
+        }
+    }
+
+    const handleDelete = async (event, email_cliente) => {
+        try {
+            let res = await axios.delete(`http://localhost:5000/eliminarCliente/${email_cliente}`)
+            if (res.status === 200) {
+                email_cliente("");
+            } else {
+                console.log("MALOOOOO MALOOOOO");
+            }
+        } catch (error) {
+            console.log(error)
         }
     }
 
@@ -81,17 +101,9 @@ function Cliente() {
                                                 type="submit"
                                                 class="btn red"
                                                 id="areaButton"
-                                                onClick="eliminarTest()"
+                                                onClick={(event) => handleDelete(event, item.email_cliente)}
                                             >
                                                 Elimnar
-                                            </button>
-                                            <button
-                                                type="submit"
-                                                class="btn orange"
-                                                id="areaButton"
-                                                onClick=""
-                                            >
-                                                Editar
                                             </button>
                                         </td>
                                     </tr>
