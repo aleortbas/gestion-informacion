@@ -152,7 +152,6 @@ app.post("/anadirProveedor", async function (req, res) {
       .input("email_proveedor", email_proveedor)
       .input("telefono_proveedor", telefono_proveedor)
       .query("INSERT INTO [dbo].[gi_proveedor] ([nit_proveedor] ,[nombre_proveedor] ,[abreviatura_proveedor] ,[email_proveedor] ,[telefono_proveedor]) VALUES(@nit, @nombre_proveedor, @abreviatura, @email_proveedor, @telefono_proveedor)")
-    alert("INSERT WORKING")
     console.log("INSERT WORKING")
   } catch (error) {
     console.error(error)
@@ -193,6 +192,44 @@ app.delete("/eliminarProveedor/:email", async function (req, res) {
     console.log("DELTE WORKING")
   } catch (error) {
     console.log(error)
+  }
+})
+
+app.get("/proyecto", async function (req, res) {
+  try {
+    const result = await pool.request().query("SELECT * FROM gi_proyecto_historico")
+    res.json(result.recordset)
+  } catch (error) {
+    console.error(error)
+  }
+})
+
+app.post("/anadirProyecto", async function (req, res) {
+  const [
+    idProyecto,
+    nombreProyecto,
+    abreviatura,
+    tipoEstudio,
+    conteoTotal,
+    conteoIdeal,
+    periodicdad,
+    idSubarea
+  ] = req.body
+
+  try {
+    let res = await pool.request()
+      .input("idProyecto", idProyecto)
+      .input("nombreProyecto", nombreProyecto)
+      .input("abreviatura", abreviatura)
+      .input("tipoEstudio", tipoEstudio)
+      .input("conteoTotal", conteoTotal)
+      .input("conteoIdeal", conteoIdeal)
+      .input("periodicdad", periodicdad)
+      .input("idSubarea", idSubarea)
+      .query("INSERT INTO [dbo].[gi_proyecto_historico]([nombre_proyecto],[abreviatura_proyecto],[tipo_estudio],[fecha_inicio_proyecto],[conteo_total_mediciones],[conteo_ideal_mediciones],[periodicidad],[id_subarea])VALUES(@nombreProyecto, @abreviatura, @tipoEstudio, @fechaInicio, @conteoTotal, @conteoIdeal, @periodicdad, @idSubarea)")
+    console.log("INSERT WORKING")
+  } catch (error) {
+    console.error(error)
   }
 })
 
