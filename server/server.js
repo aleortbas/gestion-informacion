@@ -176,7 +176,7 @@ app.post("/editarProveedor", async function (req, res) {
       .input("abreviatura", abreviatura)
       .input("email_proveedor", email_proveedor)
       .input("telefono_proveedor", telefono_proveedor)
-      .query("UPDATE [dbo].[gi_proveedor] SET nit_proveedor = @nit, nombre_proveedor = @nombre_proveedor, abreviatura_proveedor = @abreviatura, email_proveedor = @email_proveedor, telefono_proveedor = @telefono_proveedor WHERE email_proveedor = @email_proveedor")
+      .query("UPDATE [dbo].[gi_proveedor] SET nit_proveedor = @nit, nombre_proveedor = @nombre_proveedor, abreviatura_proveedor = @abreviatura, email_proveedor = @email_proveedor, telefono_proveedor = @telefono_proveedor WHERE nit_proveedor = @nit")
     console.log("UPDATE WORKING")
   } catch (error) {
     console.error(error)
