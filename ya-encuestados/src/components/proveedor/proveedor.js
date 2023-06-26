@@ -8,7 +8,7 @@ function Proveedor() {
     const [nit, setNit] = useState(null)
     const [nombre_proveedor, setNombreProveedor] = useState(null)
     const [email_proveedor, setEmailProveedor] = useState(null)
-    const [telefono_proveedor, setTelefonProveedor] = useState(null)
+    const [telefono_proveedor, setTelefonoProveedor] = useState(null)
 
     useEffect(() => {
         fetchData();
@@ -51,38 +51,51 @@ function Proveedor() {
         setNit(item.nit_proveedor);
         setNombreProveedor(item.nombre_proveedor);
         setEmailProveedor(item.email_proveedor);
-        setTelefonProveedor(item.telefono_proveedor);
+        setTelefonoProveedor(item.telefono_proveedor);
 
         console.log(item)
+    }
+
+    const resetForm = () => {
+        setNit("");
+        setNombreProveedor("");
+        setEmailProveedor("");
+        setTelefonoProveedor("");
+        setShowElement(false)
     }
 
     return (
         <div className="container-fluid proveedor-container">
             <div className="row">
                 <div className="col-4 d-flex align-items-center">
-                    <form method="post" onSubmit={(event) => handleSubmitProveedor(event, "anadirProveedor")}>
+                    <form className="formAnadirProveedor" method="post" onSubmit={(event) => handleSubmitProveedor(event, showElement ? "editarProveedor" : "anadirProveedor")}>
                         <div className="form-group">
                             <label>NIT</label>
-                            <input type="text" className="form-control" name="nit" id="nit" placeholder="NIT" onChange={(e) => setNit(e.target.value)} />
+                            <input type="text" className="form-control" name="nit" id="nit" placeholder="NIT" value={nit} onChange={(e) => setNit(e.target.value)} readOnly={showElement} />
                             <small className="form-text text-muted">Numero de identificacion tributaria</small>
                         </div>
                         <div className="form-group">
                             <label>Nombre del proveedor</label>
-                            <input type="text" className="form-control" name="nombre_proveedor" id="nombre_proveedor" placeholder="Nombre proveedor" onChange={(e) => setNombreProveedor(e.target.value)} />
+                            <input type="text" className="form-control" name="nombre_proveedor" id="nombre_proveedor" placeholder="Nombre proveedor" value={nombre_proveedor} onChange={(e) => setNombreProveedor(e.target.value)} />
                         </div>
                         <div className="form-group">
                             <label>Correo electronico del proveedor</label>
-                            <input type="email" className="form-control" name="email_proveedor" id="email_proveedor" placeholder="Email proveedor" onChange={(e) => setEmailProveedor(e.target.value)} />
+                            <input type="email" className="form-control" name="email_proveedor" id="email_proveedor" placeholder="Email proveedor" value={email_proveedor} onChange={(e) => setEmailProveedor(e.target.value)} />
                         </div>
                         <div className="form-group">
                             <label>Numero telefono o celular</label>
-                            <input type="number" className="form-control" name="telefono_proveedor" id="telefono_proveedor" placeholder="Numero de contacto" onChange={(e) => setTelefonProveedor(e.target.value)} />
+                            <input type="text" className="form-control" name="telefono_proveedor" id="telefono_proveedor" placeholder="Numero de contacto" value={telefono_proveedor} onChange={(e) => setTelefonoProveedor(e.target.value)} />
                         </div>
                         <div className="button-container">
-                            <button type="submit" className="btn btn-paginas" id="agregar">
+                            <button type="submit" className="btn btn-paginas" id="agregar" disabled={showElement}>
                                 Agregar
                             </button>
-                            <button type="submit" className="btn btn-paginas" id="cancelar">
+                            {showElement && (
+                                <button type="submit" className="btn btn-paginas" id="editar">
+                                    Editar
+                                </button>
+                            )}
+                            <button type="submit" className="btn btn-paginas" id="cancelar" onClick={resetForm}>
                                 Cancelar
                             </button>
                         </div>
@@ -91,13 +104,14 @@ function Proveedor() {
                 <div className="col-8">
                     <div className="table-container">
                         <table className="table table-border table-hover">
-                            <thead>
+                            <thead className="thead">
                                 <tr>
                                     <th scope="col">NIT</th>
                                     <th scope="col">Nombre</th>
                                     <th scope="col">Abreviatura</th>
                                     <th scope="col">Correo electronico</th>
-                                    <th scope="col">telefono o celular</th>
+                                    <th scope="col">Telefono</th>
+                                    <th scope="col">Acciones</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -132,39 +146,6 @@ function Proveedor() {
                         </table>
                     </div>
                 </div>
-                {showElement && (
-                    <div className="row">
-                        <div className="col-12">
-                            <form method="post" onSubmit={(event) => handleSubmitProveedor(event, "editarProveedor")}>
-                                <div className="form-group">
-                                    <label>NIT</label>
-                                    <input type="text" className="form-control" name="nit" id="nit" placeholder="NIT" value={nit} onChange={(e) => setNit(e.target.value)} />
-                                    <small className="form-text text-muted">Numero de identificacion tributaria</small>
-                                </div>
-                                <div className="form-group">
-                                    <label>Nombre del proveedor</label>
-                                    <input type="text" className="form-control" name="nombre_proveedor" id="nombre_proveedor" placeholder="Nombre proveedor" value={nombre_proveedor} onChange={(e) => setNombreProveedor(e.target.value)} />
-                                </div>
-                                <div className="form-group">
-                                    <label>Correo electronico del proveedor</label>
-                                    <input type="email" className="form-control" name="email_proveedor" id="email_proveedor" placeholder="Email proveedor" value={email_proveedor} onChange={(e) => setEmailProveedor(e.target.value)} />
-                                </div>
-                                <div className="form-group">
-                                    <label>Numero telefono o celular</label>
-                                    <input type="number" className="form-control" name="telefono_proveedor" id="telefono_proveedor" placeholder="Numero de contacto" value={telefono_proveedor} onChange={(e) => setTelefonProveedor(e.target.value)} />
-                                </div>
-                                <div className="button-container">
-                                    <button type="submit" className="btn btn-paginas" id="editar">
-                                        Editar
-                                    </button>
-                                    <button type="submit" className="btn btn-paginas" id="cancelar">
-                                        Cancelar
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                )}
             </div>
         </div>
     )
