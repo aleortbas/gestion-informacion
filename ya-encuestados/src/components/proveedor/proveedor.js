@@ -95,7 +95,7 @@ function Proveedor() {
                                     Editar
                                 </button>
                             )}
-                            <button type="submit" className="btn btn-paginas" id="cancelar" onClick={resetForm}>
+                            <button type="button" className="btn btn-paginas" id="cancelar" onClick={resetForm}>
                                 Cancelar
                             </button>
                         </div>

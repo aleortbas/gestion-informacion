@@ -27,12 +27,12 @@
   background-image: linear-gradient(150deg, white 50%, orange 50%);
 }
 
-.anadir-area{
+.anadir-area {
   display: flex;
   justify-content: center;
 }
 
-.formularioEmpresa{
+.formularioEmpresa {
   width: 750px;
 }
 
@@ -41,5 +41,6 @@
 }
 
 .button-container button {
-  margin-right: 25px; /* Adjust spacing between buttons as needed */
+  margin-right: 25px;
+  /* Adjust spacing between buttons as needed */
 }
