@@ -197,7 +197,7 @@ app.delete("/eliminarProveedor/:email", async function (req, res) {
 
 app.get("/proyecto", async function (req, res) {
   try {
-    const result = await pool.request().query("SELECT * FROM gi_proyecto_historico")
+    const result = await pool.request().query("SELECT * FROM gi_proyecto")
     res.json(result.recordset)
   } catch (error) {
     console.error(error)
@@ -205,31 +205,48 @@ app.get("/proyecto", async function (req, res) {
 })
 
 app.post("/anadirProyecto", async function (req, res) {
-  const [
-    idProyecto,
-    nombreProyecto,
+  const {
+    id_subarea,
+    nombre_proyecto,
     abreviatura,
-    tipoEstudio,
-    conteoTotal,
-    conteoIdeal,
-    periodicdad,
-    idSubarea
-  ] = req.body
+    fecha_inicio,
+    periodicidad
+  } = req.body;
 
   try {
-    let res = await pool.request()
-      .input("idProyecto", idProyecto)
-      .input("nombreProyecto", nombreProyecto)
+    const result = await pool.request()
+      .input("nombreProyecto", nombre_proyecto)
       .input("abreviatura", abreviatura)
-      .input("tipoEstudio", tipoEstudio)
-      .input("conteoTotal", conteoTotal)
-      .input("conteoIdeal", conteoIdeal)
-      .input("periodicdad", periodicdad)
-      .input("idSubarea", idSubarea)
-      .query("INSERT INTO [dbo].[gi_proyecto_historico]([nombre_proyecto],[abreviatura_proyecto],[tipo_estudio],[fecha_inicio_proyecto],[conteo_total_mediciones],[conteo_ideal_mediciones],[periodicidad],[id_subarea])VALUES(@nombreProyecto, @abreviatura, @tipoEstudio, @fechaInicio, @conteoTotal, @conteoIdeal, @periodicdad, @idSubarea)")
+      .input("fecha_inicio", fecha_inicio)
+      .input("periodicdad", periodicidad)
+      .input("idSubarea", id_subarea)
+      .query("INSERT INTO [dbo].[gi_proyecto]([nombre_proyecto],[abreviatura_proyecto],[tipo_estudio],[fecha_inicio_proyecto],[conteo_total_mediciones],[conteo_ideal_mediciones],[periodicidad],[id_subarea])VALUES(@nombreProyecto, @abreviatura, 'Por definir', @fecha_inicio, '0', '0', @periodicdad, @idSubarea)")
     console.log("INSERT WORKING")
   } catch (error) {
     console.error(error)
+  }
+})
+
+app.post("/editarProyecto", async function (rea, res) {
+  const {
+    id_proyecto,
+    id_subarea,
+    nombre_proyecto,
+    abreviatura,
+    fecha_inicio,
+    periodicidad
+  } = req.body;
+  try {
+    const result = await pool.request()
+      .input("idProyecto", id_proyecto)
+      .input("nombreProyecto", nombre_proyecto)
+      .input("abreviatura", abreviatura)
+      .input("fecha_inicio", fecha_inicio)
+      .input("periodicdad", periodicidad)
+      .input("idSubarea", id_subarea)
+      .query("")
+  } catch (error) {
+
   }
 })
 
