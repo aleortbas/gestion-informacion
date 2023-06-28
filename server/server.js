@@ -227,26 +227,43 @@ app.post("/anadirProyecto", async function (req, res) {
   }
 })
 
-app.post("/editarProyecto", async function (rea, res) {
+app.post("/editarProyecto", async function (req, res) {
   const {
     id_proyecto,
     id_subarea,
     nombre_proyecto,
     abreviatura,
-    fecha_inicio,
-    periodicidad
+    periodicidad,
+    tipoEstudio,
+    conteoTotal
   } = req.body;
+  console.log("TIPO", tipoEstudio)
+  console.log("CONTEO", conteoTotal)
   try {
     const result = await pool.request()
       .input("idProyecto", id_proyecto)
+      .input("idSubarea", id_subarea)
       .input("nombreProyecto", nombre_proyecto)
       .input("abreviatura", abreviatura)
-      .input("fecha_inicio", fecha_inicio)
-      .input("periodicdad", periodicidad)
-      .input("idSubarea", id_subarea)
-      .query("")
+      .input("periodicidad", periodicidad)
+      .input("tipoEstudio", tipoEstudio)
+      .input("conteoTotal", conteoTotal)
+      .query("UPDATE [dbo].[gi_proyecto] SET [id_subarea] = @idSubarea, [nombre_proyecto] = @nombreProyecto, [abreviatura_proyecto] = @abreviatura, [tipo_estudio] = @tipoEstudio, [conteo_total_mediciones] = @conteoTotal,  [periodicidad] = @periodicidad WHERE id_proyecto_historico = @idProyecto")
+    console.log("UPDATE WORKING")
   } catch (error) {
+    console.error(error)
+  }
+})
 
+app.delete("/eliminarProyecto/:idProyecto", async function (req, res) {
+  const idProyecto = req.params.idProyecto
+  try {
+    const result = await pool.request()
+      .input("idProyecto", idProyecto)
+      .query("DELETE FROM [dbo].[gi_proyecto] WHERE id_proyecto_historico = @idProyecto")
+    console.log("DELETE WORKING")
+  } catch (error) {
+    console.error(error)
   }
 })
 
