@@ -8,7 +8,9 @@ function Proyectos() {
     const [id_proyecto, setid_proyecto] = useState(null)
     const [nombre_proyecto, setnombre_proyecto] = useState(null)
     const [abreviatura, setAbreviatura] = useState(null)
-    const [tipo_estudio, settipo_estudio] = useState(null)
+    const [tipo_estudio, setTipo_estudio] = useState(null)
+    const [conteo_ideal, setConteoIdeal] = useState(null)
+    const [conteo_total, setConteoTotal] = useState(null)
     const [periodicidad, setPeriodicidad] = useState(null)
     const [fecha_inicio, setfecha_inicio] = useState(null)
     const [id_subarea, setid_subarea] = useState(null)
@@ -32,15 +34,21 @@ function Proyectos() {
         try {
             let res = await axios.post(`http://localhost:5000/${endpoint}`, {
                 id_proyecto: id_proyecto,
+                id_subarea: id_subarea,
                 nombre_proyecto: nombre_proyecto,
                 abreviatura: abreviatura,
-                tipo_estudio: tipo_estudio,
-                conteoTotal: "0",
-                conteoTotal: "0",
                 periodicidad: periodicidad,
-                fecha_inicio: fecha_inicio,
-                id_subarea: id_subarea
+                tipoEstudio: tipo_estudio,
+                conteoTotal: conteo_total,
             })
+        } catch (error) {
+            console.error(error)
+        }
+    }
+
+    const handelDeleteProyecto = async (event, id_proyecto) => {
+        try {
+            let res = await axios.delete(`http://localhost:5000/eliminarProyecto/${id_proyecto}`)
         } catch (error) {
             console.error(error)
         }
@@ -54,6 +62,8 @@ function Proyectos() {
         setnombre_proyecto(item.nombre_proyecto);
         setAbreviatura(item.abreviatura_proyecto);
         setfecha_inicio(item.fecha_inicio_proyecto);
+        setTipo_estudio(item.tipo_estudio)
+        setConteoTotal(item.conteo_total_mediciones)
         setPeriodicidad(item.periodicidad)
 
         console.log(item)
@@ -143,7 +153,6 @@ function Proyectos() {
                             </div>
                         </div>
                     </div>
-
                     <div className="row">
                         <div className="col-6">
                             <div class="form-group">
@@ -174,6 +183,33 @@ function Proyectos() {
                                 />
                             </div>
                         </div>
+                        {showElement && (
+                            <><div className="col-6">
+                                <div class="form-group">
+                                    <label class="form-label">Tipo de estudio</label>
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        id="tipoEstudio"
+                                        placeholder="Tipo de estudio"
+                                        name="tipoEstudio"
+                                        value={tipo_estudio}
+                                        onChange={(e) => setTipo_estudio(e.target.value)} />
+                                </div>
+                            </div><div className="col-6">
+                                    <div class="form-group">
+                                        <label class="form-label">Conteo total de mediciones</label>
+                                        <input
+                                            type="text"
+                                            class="form-control"
+                                            id="conteoTotal"
+                                            placeholder="Conteo total de medicones"
+                                            name="conteoTotal"
+                                            value={conteo_total}
+                                            onChange={(e) => setConteoTotal(e.target.value)} />
+                                    </div>
+                                </div></>
+                        )}
                     </div>
 
                     <div class="button-container">
@@ -224,7 +260,7 @@ function Proyectos() {
                                             type="submit"
                                             className="btn red"
                                             id="areaButton"
-                                            onClick="{(event) => handleDelete(event, item.id_proyecto_historico)}"
+                                            onClick={(event) => handelDeleteProyecto(event, item.id_proyecto_historico)}
                                         >
                                             Elimnar
                                         </button>
