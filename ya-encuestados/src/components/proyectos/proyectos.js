@@ -212,16 +212,16 @@ function Proyectos() {
                         )}
                     </div>
 
-                    <div class="button-container">
-                        <button type="submit" class="btn btn-paginas" id="agregar">
+                    <div className="button-container">
+                        <button type="submit" className="btn btn-paginas" id="agregar">
                             Agregar
                         </button>
                         {showElement && (
-                            <button type="submit" class="btn btn-paginas" id="editar">
+                            <button type="submit" className="btn btn-paginas" id="editar">
                                 Editar
                             </button>
                         )}
-                        <button type="button" class="btn btn-paginas" id="cancelar" onClick={resetForm}>
+                        <button type="button" className="btn btn-paginas" id="cancelar" onClick={resetForm}>
                             Cancelar
                         </button>
                     </div>

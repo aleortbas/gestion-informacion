@@ -8,6 +8,7 @@ import "./components/area/area.css";
 import "./components/cliente/cliente.css"
 import "./components/proveedor/proveedor.css"
 import "./components/proyectos/proyectos.css"
+import "./components/medicion/medicion"
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
