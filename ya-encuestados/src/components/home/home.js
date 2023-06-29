@@ -84,12 +84,11 @@ function Home() {
 
           <div className="card">
             <div className="card-body">
-              <h5 className="card-title">YaEncuestados</h5>
+              <h5 className="card-title">Metricas</h5>
               <p className="card-text">
-                Acceso a la lista de asociados elegibles para ser parte de la
-                muestra.
+                Consulta de metricas generada con la base de datos
               </p>
-              <a href="/yaEncuestados" className="btn btn-paginas">
+              <a href="/metricas" className="btn btn-paginas">
                 Abrir
               </a>
             </div>
