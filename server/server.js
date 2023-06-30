@@ -2,8 +2,10 @@ const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const pool = require("./dbConnection");
+const multer = require("multer")
 
 const app = express();
+const upload = multer({ dest: "uploads/" });
 
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -347,6 +349,7 @@ app.delete("/eliminarMedicion/:idMedicion", async (req, res) => {
   }
 })
 
+
 app.listen(5000, function (params) {
-  console.log("Server started");
+  console.log("Server is running on port 5000");
 });

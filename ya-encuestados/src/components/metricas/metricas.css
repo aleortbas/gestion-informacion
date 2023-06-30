@@ -1,35 +1,69 @@
-.card {
+* {
+    box-sizing: border-box;
+}
+
+.wrapper {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+}
+
+.wrapper>div {
+    border-radius: 5px;
+    padding: 1em;
+}
+
+.one {
+    grid-column: 1 / 2;
+    grid-row: 1/5;
+}
+
+.two {
+    grid-column: 2 / 4;
+    grid-row: 1 / 5;
+}
+
+
+.one {
     text-align: center;
     box-shadow: 0px 0px 3px 3px #dddddd;
-    height: auto;
-    width: fit-content;
+    height: 100%;
+    width: 100%;
     padding: 10px 15px;
     border-radius: 10px;
 }
 
-.card .title {
+.one .title {
     font-size: 2em;
     margin: 15px;
 }
 
-.card .form {
+.one .form {
     display: flex;
     align-items: center;
     justify-content: center;
+}
 
+.one ul .one li {
+    text-align: center;
 }
 
 .form label {
     cursor: pointer;
 }
 
-.card .form .input-radio {
+.one .form .input-radio {
     box-shadow: 0px 0px 0px 1px #6d6d6d;
     font-size: 3em;
     width: 25px;
     height: 25px;
     margin-right: 7px;
-
     border: 4px solid #fff;
     background-clip: border-box;
     border-radius: 50%;
@@ -38,12 +72,18 @@
 
 }
 
-.card .form label {
+.one .form label {
     display: flex;
     margin: 10px 15px;
 }
 
-.input-radio:checked {
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.input-radio.on:checked {
     box-shadow: 0px 0px 0px 4px #384d48;
     background-color: #384d48;
 }

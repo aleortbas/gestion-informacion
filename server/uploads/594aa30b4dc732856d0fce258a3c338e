@@ -1,0 +1,46 @@
+cod_empresa;nombre_empresa;cod_unidad;nombre_unidad;cod_area;nombre_area;id_subarea;nombre_subare
+1000;Google;1001;Googleplex;1001;Mountain View;1001;California
+1001;Apple;1002;Apple Park;1002;Cupertino;1002;California
+1002;Microsoft;1003;Microsoft Redmond Campus;1003;Redmond;1003;Washington
+1003;Amazon;1004;Amazon Spheres;1004;Seattle;1004;Washington
+1004;Facebook;1005;Menlo Park;1005;California;;
+1005;Tesla;1006;Tesla Factory;1006;Fremont;1006;California
+1006;SpaceX;1007;SpaceX Headquarters;1007;Hawthorne;1007;California
+1007;Netflix;1008;Netflix Headquarters;1008;Los Gatos;1008;California
+1008;Adobe;1009;Adobe Headquarters;1009;San Jose;1009;California
+1009;Oracle;1010;Oracle Headquarters;1010;Redwood Shores;1010;California
+1010;IBM;1011;IBM Thomas J. Watson Research Center;1011;Yorktown Heights;1011;New York
+1011;SAP;1012;SAP Headquarters;1012;Walldorf;1012;Germany
+1012;Siemens;1013;Siemens Headquarters;1013;Munich;1013;Germany
+1013;Volkswagen;1014;Volkswagen Headquarters;1014;Wolfsburg;1014;Germany
+1014;BMW;1015;BMW Headquarters;1015;Munich;1015;Germany
+1015;Audi;1016;Audi Headquarters;1016;Ingolstadt;1016;Germany
+1016;Daimler;1017;Daimler Headquarters;1017;Stuttgart;1017;Germany
+1017;Toyota;1018;Toyota Headquarters;1018;Toyota City;1018;Japan
+1018;Honda;1019;Honda Headquarters;1019;Tokyo;1019;Japan
+1019;Nissan;1020;Nissan Headquarters;1020;Yokohama;1020;Japan
+1020;Hyundai;1021;Hyundai Headquarters;1021;Seoul;1021;South Korea
+1021;Kia;1022;Kia Headquarters;1022;Seoul;1022;South Korea
+1022;General Motors;1023;General Motors Headquarters;1023;Detroit;1023;Michigan
+1023;Ford;1024;Ford Headquarters;1024;Dearborn;1024;Michigan
+1024;Chrysler;1025;Chrysler Headquarters;1025;Auburn Hills;1025;Michigan
+1025;Tesla;1026;Tesla Factory;1026;Fremont;1026;California
+1026;SpaceX;1027;SpaceX Headquarters;1027;Hawthorne;1027;California
+1027;Boeing;1028;Boeing Headquarters;1028;Seattle;1028;Washington
+1028;Airbus;1029;Airbus Headquarters;1029;Toulouse;1029;France
+1029;Bombardier;1030;Bombardier Headquarters;1030;Montreal;1030;Canada
+1030;Embraer;1031;Embraer Headquarters;1031;São José dos Campos;1031;Brazil
+1031;Rolls-Royce;1032;Rolls-Royce Headquarters;1032;Derby;1032;United Kingdom
+1032;General Electric;1033;General Electric Headquarters;1033;Fairfield;1033;Connecticut
+1033;Siemens;1034;Siemens Headquarters;1034;Munich;1034;Germany
+1034;Honeywell;1035;Honeywell Headquarters;1035;Morristown;1035;New Jersey
+1035;United Technologies;1036;United Technologies Headquarters;1036;Hartford;1036;Connecticut
+1036;Raytheon;1037;Raytheon Headquarters;1037;Waltham;1037;Massachusetts
+1037;Lockheed Martin;1038;Lockheed Martin Headquarters;1038;Bethesda;1038;Maryland
+1038;Northrop Grumman;1039;Northrop Grumman Headquarters;1039;Falls Church;1039;Virginia
+1039;Boeing;1040;Boeing Factory;1040;Everett;1040;Washington
+1040;Airbus;1041;Airbus Factory;1041;Toulouse;1041;France
+1041;Bombardier;1042;Bombardier Factory;1042;Mirabel;1042;Canada
+1042;Embraer;1043;Embraer Factory;1043;São José dos Campos;1043;Brazil
+1043;Rolls-Royce;1044;Rolls-Royce Factory;1044;Derby;1044;United Kingdom
+1044;General Electric;1045;General Electric Factory;1045;Lynn;1045;Massachusetts
