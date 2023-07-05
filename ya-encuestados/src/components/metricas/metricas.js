@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import Discrepancia from "../discrepanciaMediciones/cargoSolicitado";
 import SubareaSolicitado from "../subareaSolicitante/subareaSolicitante";
+import TotalProyectos from "../totalProyectos/totalProyectos";
 
 function Metricas() {
 
@@ -20,7 +21,7 @@ function Metricas() {
                         <ul>
                             <li><label><input type="radio" class="input-radio on" name="pilih" value="discrepancia" checked={action === "discrepancia"} onChange={onActionChange} /> Cargo mas solicitante de proyectos</label>  </li>
                             <li><label><input type="radio" class="input-radio on" name="pilih" value="subareaSolicitante" checked={action === "subareaSolicitante"} onChange={onActionChange} /> Subarea mas solicitante de proyectos</label>  </li>
-                            <li><label><input type="radio" class="input-radio on" name="pilih" value="numeroSubarea" checked={action === "numeroSubarea"} onChange={onActionChange} /> Numero de subareas repetidas</label>  </li>
+                            <li><label><input type="radio" class="input-radio on" name="pilih" value="totalProyectos" checked={action === "totalProyectos"} onChange={onActionChange} /> Total de proyectos</label>  </li>
                             <li><label><input type="radio" class="input-radio on" name="pilih" value="proveedorSolicitado" checked={action === "proveedorSolicitado"} onChange={onActionChange} /> Proveedor mas solicitado </label>  </li>
                             <li><label><input type="radio" class="input-radio on" name="pilih" value="subareaMasProyectos" checked={action === "subareaMasProyectos"} onChange={onActionChange} /> Subarea con mas proyectos</label>  </li>
                             <li><label><input type="radio" class="input-radio on" name="pilih" value="proyectoAntiguo" checked={action === "proyectoAntiguo"} onChange={onActionChange} /> Proyecto mas antiguo</label>  </li>
@@ -34,6 +35,7 @@ function Metricas() {
             <div class="two">
                 {action === "discrepancia" && <Discrepancia />}
                 {action === "subareaSolicitante" && <SubareaSolicitado />}
+                {action === "totalProyectos" && <TotalProyectos />}
             </div>
         </div>
     );
