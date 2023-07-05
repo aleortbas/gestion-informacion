@@ -359,6 +359,16 @@ app.get("/cargoSolicitado", async (req, res) => {
   }
 })
 
+app.get("/subareaSolicitado", async (req, res) => {
+  try {
+    const result = await pool.request().query("SELECT gi_empresa.nombre_subarea,gi_proyecto.id_subarea, COUNT(*) as proyectos  FROM gi_proyecto  JOIN gi_empresa ON gi_proyecto.id_subarea = gi_empresa.id_subarea  GROUP BY gi_empresa.nombre_subarea, gi_proyecto.id_subarea  ORDER BY proyectos DESC ")
+    res.json(result.recordset)
+    console.log(result)
+  } catch (error) {
+    console.error(error)
+  }
+})
+
 
 app.listen(5000, function (params) {
   console.log("Server is running on port 5000");
