@@ -349,6 +349,16 @@ app.delete("/eliminarMedicion/:idMedicion", async (req, res) => {
   }
 })
 
+app.get("/cargoSolicitado", async (req, res) => {
+  try {
+    const result = await pool.request().query("SELECT YEAR(fecha_inicio) AS año, nombre_puesto, COUNT(*) AS cantidad_proyectos FROM gi_medicion JOIN gi_cliente ON gi_medicion.email_cliente = gi_cliente.email_cliente GROUP BY YEAR(fecha_inicio),nombre_puesto HAVING COUNT(*) = (SELECT MAX(cantidad_proyectos) FROM(SELECT YEAR(fecha_inicio) AS año, nombre_puesto,COUNT(*) AS cantidad_proyectos FROM gi_medicion JOIN gi_cliente ON gi_medicion.email_cliente = gi_cliente.email_cliente GROUP BY YEAR(fecha_inicio),nombre_puesto) AS proyectos_por_cargo WHERE proyectos_por_cargo.año = YEAR(gi_medicion.fecha_inicio));")
+    res.json(result.recordset)
+    //console.log(result)
+  } catch (error) {
+    console.error(error)
+  }
+})
+
 
 app.listen(5000, function (params) {
   console.log("Server is running on port 5000");
