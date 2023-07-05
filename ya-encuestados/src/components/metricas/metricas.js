@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import Discrepancia from "../discrepanciaMediciones/cargoSolicitado";
+import SubareaSolicitado from "../subareaSolicitante/subareaSolicitante";
 
 function Metricas() {
 
@@ -18,7 +19,7 @@ function Metricas() {
                     <div className="form">
                         <ul>
                             <li><label><input type="radio" class="input-radio on" name="pilih" value="discrepancia" checked={action === "discrepancia"} onChange={onActionChange} /> Cargo mas solicitante de proyectos</label>  </li>
-                            <li><label><input type="radio" class="input-radio on" name="pilih" value="filtroSubarea" checked={action === "filtroSubarea"} onChange={onActionChange} /> Filtro por subareas</label>  </li>
+                            <li><label><input type="radio" class="input-radio on" name="pilih" value="subareaSolicitante" checked={action === "subareaSolicitante"} onChange={onActionChange} /> Subarea mas solicitante de proyectos</label>  </li>
                             <li><label><input type="radio" class="input-radio on" name="pilih" value="numeroSubarea" checked={action === "numeroSubarea"} onChange={onActionChange} /> Numero de subareas repetidas</label>  </li>
                             <li><label><input type="radio" class="input-radio on" name="pilih" value="proveedorSolicitado" checked={action === "proveedorSolicitado"} onChange={onActionChange} /> Proveedor mas solicitado </label>  </li>
                             <li><label><input type="radio" class="input-radio on" name="pilih" value="subareaMasProyectos" checked={action === "subareaMasProyectos"} onChange={onActionChange} /> Subarea con mas proyectos</label>  </li>
@@ -32,6 +33,7 @@ function Metricas() {
             </div>
             <div class="two">
                 {action === "discrepancia" && <Discrepancia />}
+                {action === "subareaSolicitante" && <SubareaSolicitado />}
             </div>
         </div>
     );

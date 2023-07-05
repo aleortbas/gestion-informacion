@@ -11,6 +11,7 @@ import "./components/proyectos/proyectos.css"
 import "./components/medicion/medicion.css"
 import "./components/metricas/metricas.css"
 import "./components/discrepanciaMediciones/cargoSolicitado.css"
+import "./components/subareaSolicitante/subareaSolicitante.css"
 
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
