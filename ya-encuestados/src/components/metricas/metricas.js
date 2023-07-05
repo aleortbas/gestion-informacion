@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import Discrepancia from "../discrepanciaMediciones/discrepancia";
+import Discrepancia from "../discrepanciaMediciones/cargoSolicitado";
 
 function Metricas() {
 
@@ -17,7 +17,7 @@ function Metricas() {
                     <div className="title">Metricas</div>
                     <div className="form">
                         <ul>
-                            <li><label><input type="radio" class="input-radio on" name="pilih" value="discrepancia" checked={action === "discrepancia"} onChange={onActionChange} /> Discrepancia en las mediciones</label>  </li>
+                            <li><label><input type="radio" class="input-radio on" name="pilih" value="discrepancia" checked={action === "discrepancia"} onChange={onActionChange} /> Cargo mas solicitante de proyectos</label>  </li>
                             <li><label><input type="radio" class="input-radio on" name="pilih" value="filtroSubarea" checked={action === "filtroSubarea"} onChange={onActionChange} /> Filtro por subareas</label>  </li>
                             <li><label><input type="radio" class="input-radio on" name="pilih" value="numeroSubarea" checked={action === "numeroSubarea"} onChange={onActionChange} /> Numero de subareas repetidas</label>  </li>
                             <li><label><input type="radio" class="input-radio on" name="pilih" value="proveedorSolicitado" checked={action === "proveedorSolicitado"} onChange={onActionChange} /> Proveedor mas solicitado </label>  </li>

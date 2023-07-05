@@ -10,7 +10,7 @@ import "./components/proveedor/proveedor.css"
 import "./components/proyectos/proyectos.css"
 import "./components/medicion/medicion.css"
 import "./components/metricas/metricas.css"
-import "./components/discrepanciaMediciones/discrepancia.css"
+import "./components/discrepanciaMediciones/cargoSolicitado.css"
 
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
