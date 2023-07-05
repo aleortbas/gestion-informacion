@@ -369,6 +369,16 @@ app.get("/subareaSolicitado", async (req, res) => {
   }
 })
 
+app.get("/totalProyectos", async (req, res) => {
+  try {
+    const result = await pool.request().query("SELECT COUNT(*) AS total_proyectos  FROM gi_proyecto; ")
+    res.json(result.recordset)
+    console.log(result)
+  } catch (error) {
+    console.error(error)
+  }
+})
+
 
 app.listen(5000, function (params) {
   console.log("Server is running on port 5000");
