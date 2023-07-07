@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-function TotalProyectos() {
+function ProveedorMasSolicitado() {
 
     const [data, setData] = useState([])
 
@@ -11,7 +11,7 @@ function TotalProyectos() {
 
     async function fetchDat() {
         try {
-            const response = await axios.get("http://localhost:5000/totalProyectos")
+            const response = await axios.get("http://localhost:5000/proveedorMasSolicitado")
             setData(response.data)
         } catch (error) {
             console.log(error)
@@ -20,17 +20,23 @@ function TotalProyectos() {
 
     return (
         <div className="one">
-            <h1>Total de proyectos</h1>
+            <h1>Proveedor mas solicitado</h1>
             <table className="table table-bordered">
                 <thead>
                     <tr>
-                        <th>Total</th>
+                        <th>Nombre del proveedor</th>
+                        <th>Email proveedor</th>
+                        <th>NIT</th>
+                        <th>Conteo</th>
                     </tr>
                 </thead>
                 <tbody>
                     {data.map((item) => (
-                        <tr key={item.total_proyectos}>
-                            <td>{item.total_proyectos}</td>
+                        <tr key={item.nombre_proveedor}>
+                            <td>{item.nombre_proveedor}</td>
+                            <td>{item.email_proveedor}</td>
+                            <td>{item.nit_proveedor}</td>
+                            <td>{item.conteo}</td>
                         </tr>
                     ))}
                 </tbody>
@@ -40,4 +46,4 @@ function TotalProyectos() {
 
 }
 
-export default TotalProyectos;
+export default ProveedorMasSolicitado;

@@ -1,17 +1,16 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-function TotalProyectos() {
-
+function TotalMediciones() {
     const [data, setData] = useState([])
 
     useEffect(() => {
-        fetchDat();
+        fetchData()
     }, [])
 
-    async function fetchDat() {
+    async function fetchData() {
         try {
-            const response = await axios.get("http://localhost:5000/totalProyectos")
+            const response = await axios.get("http://localhost:5000/totalMediciones")
             setData(response.data)
         } catch (error) {
             console.log(error)
@@ -20,24 +19,23 @@ function TotalProyectos() {
 
     return (
         <div className="one">
-            <h1>Total de proyectos</h1>
+            <h1>Total de mediciones</h1>
             <table className="table table-bordered">
                 <thead>
                     <tr>
-                        <th>Total</th>
+                        <th>Total mediciones</th>
                     </tr>
                 </thead>
                 <tbody>
                     {data.map((item) => (
-                        <tr key={item.total_proyectos}>
-                            <td>{item.total_proyectos}</td>
+                        <tr key={item.total_mediciones}>
+                            <td>{item.total_mediciones}</td>
                         </tr>
                     ))}
                 </tbody>
             </table>
         </div>
     )
-
 }
 
-export default TotalProyectos;
+export default TotalMediciones;

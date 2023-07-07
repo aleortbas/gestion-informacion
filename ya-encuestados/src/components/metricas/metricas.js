@@ -3,6 +3,22 @@ import axios from "axios";
 import Discrepancia from "../discrepanciaMediciones/cargoSolicitado";
 import SubareaSolicitado from "../subareaSolicitante/subareaSolicitante";
 import TotalProyectos from "../totalProyectos/totalProyectos";
+import TotalMediciones from "../totalMediciones/totalMediciones";
+import ProyectoMasMediciones from "../proyectoMasMediciones/proyectoMasMediciones";
+import PeriodicidadRepetida from "../periodicidadRepetida/periodicidadRepetida";
+import AsociadosEncuestdosAños from "../asociadosEncustadosAño/asociadosEncustadosAño";
+import ProveedorMasSolicitado from "../proveedorMasSolicitado/proveedorMasSolicitado";
+
+const componentMapping = {
+    discrepancia: Discrepancia,
+    subareaSolicitante: SubareaSolicitado,
+    totalProyectos: TotalProyectos,
+    totalMediciones: TotalMediciones,
+    proyectoMasMediciones: ProyectoMasMediciones,
+    periodicidadRepetida: PeriodicidadRepetida,
+    asociadosEncuestdosAños: AsociadosEncuestdosAños,
+    proveedorMasSolicitado: ProveedorMasSolicitado
+}
 
 function Metricas() {
 
@@ -11,6 +27,8 @@ function Metricas() {
     const onActionChange = e => {
         setAction(e.target.value)
     }
+
+    const SelectedComponent = componentMapping[action]
 
     return (
         <div className="wrapper">
@@ -22,20 +40,17 @@ function Metricas() {
                             <li><label><input type="radio" class="input-radio on" name="pilih" value="discrepancia" checked={action === "discrepancia"} onChange={onActionChange} /> Cargo mas solicitante de proyectos</label>  </li>
                             <li><label><input type="radio" class="input-radio on" name="pilih" value="subareaSolicitante" checked={action === "subareaSolicitante"} onChange={onActionChange} /> Subarea mas solicitante de proyectos</label>  </li>
                             <li><label><input type="radio" class="input-radio on" name="pilih" value="totalProyectos" checked={action === "totalProyectos"} onChange={onActionChange} /> Total de proyectos</label>  </li>
-                            <li><label><input type="radio" class="input-radio on" name="pilih" value="proveedorSolicitado" checked={action === "proveedorSolicitado"} onChange={onActionChange} /> Proveedor mas solicitado </label>  </li>
-                            <li><label><input type="radio" class="input-radio on" name="pilih" value="subareaMasProyectos" checked={action === "subareaMasProyectos"} onChange={onActionChange} /> Subarea con mas proyectos</label>  </li>
-                            <li><label><input type="radio" class="input-radio on" name="pilih" value="proyectoAntiguo" checked={action === "proyectoAntiguo"} onChange={onActionChange} /> Proyecto mas antiguo</label>  </li>
-                            <li><label><input type="radio" class="input-radio on" name="pilih" value="medicionAntigua" checked={action === "medicionAntigua"} onChange={onActionChange} /> Medicion mas antigua</label>  </li>
-                            <li><label><input type="radio" class="input-radio on" name="pilih" value="mayorMedicion" checked={action === "mayorMedicion"} onChange={onActionChange} /> Orden descente de proyectos por mediciones</label>  </li>
-                            <li><label><input type="radio" class="input-radio on" name="pilih" value="subareaMasMediciones" checked={action === "subareaMasMediciones"} onChange={onActionChange} /> Subarea con mas mediciones</label>  </li>
+                            <li><label><input type="radio" class="input-radio on" name="pilih" value="totalMediciones" checked={action === "totalMediciones"} onChange={onActionChange} /> Total de mediciones </label>  </li>
+                            <li><label><input type="radio" class="input-radio on" name="pilih" value="proyectoMasMediciones" checked={action === "proyectoMasMediciones"} onChange={onActionChange} /> Proyecto con mas mediciones </label>  </li>
+                            <li><label><input type="radio" class="input-radio on" name="pilih" value="periodicidadRepetida" checked={action === "periodicidadRepetida"} onChange={onActionChange} /> Periodicidad mas repetida</label>  </li>
+                            <li><label><input type="radio" class="input-radio on" name="pilih" value="asociadosEncuestdosAños" checked={action === "asociadosEncuestdosAños"} onChange={onActionChange} /> Asociados encuestados el ultimo año</label>  </li>
+                            <li><label><input type="radio" class="input-radio on" name="pilih" value="proveedorMasSolicitado" checked={action === "proveedorMasSolicitado"} onChange={onActionChange} /> Proveedor mas solicitado</label>  </li>
                         </ul>
                     </div>
                 </div>
             </div>
             <div class="two">
-                {action === "discrepancia" && <Discrepancia />}
-                {action === "subareaSolicitante" && <SubareaSolicitado />}
-                {action === "totalProyectos" && <TotalProyectos />}
+                {SelectedComponent && <SelectedComponent />}
             </div>
         </div>
     );
