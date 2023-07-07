@@ -379,6 +379,56 @@ app.get("/totalProyectos", async (req, res) => {
   }
 })
 
+app.get("/totalMediciones", async (req, res) => {
+  try {
+    const result = await pool.request().query("SELECT COUNT(*) AS total_mediciones FROM gi_medicion;")
+    res.json(result.recordset)
+    console.log(result)
+  } catch (error) {
+    console.error(error)
+  }
+})
+
+app.get("/proyectoMasMediciones", async (req, res) => {
+  try {
+    const result = await pool.request().query("SELECT gi_proyecto.id_proyecto_historico, gi_proyecto.nombre_proyecto, COUNT(*) AS total_mediciones  FROM gi_medicion  JOIN gi_proyecto ON gi_medicion.id_proyecto_historico = gi_proyecto.id_proyecto_historico  GROUP BY gi_proyecto.id_proyecto_historico, gi_proyecto.nombre_proyecto  ORDER BY total_mediciones DESC ")
+    res.json(result.recordset)
+    console.log(result)
+  } catch (error) {
+    console.error(error)
+  }
+})
+
+app.get("/periodicidadRepetida", async (req, res) => {
+  try {
+    const result = await pool.request().query("SELECT periodicidad, COUNT(*) AS conteo  FROM gi_proyecto  GROUP BY periodicidad  ORDER BY conteo DESC  ")
+    res.json(result.recordset)
+    console.log(result)
+  } catch (error) {
+    console.error(error)
+  }
+})
+
+app.get("/asociadosEncuestdosAños", async (req, res) => {
+  try {
+    const result = await pool.request().query("SELECT COUNT(*) AS cantidad_documentos FROM gi_ya_encuestados WHERE estado = 2 AND YEAR(fecha_contacto) = 2022;   ")
+    res.json(result.recordset)
+    console.log(result)
+  } catch (error) {
+    console.error(error)
+  }
+})
+
+app.get("/proveedorMasSolicitado", async (req, res) => {
+  try {
+    const result = await pool.request().query("SELECT gi_proveedor.nombre_proveedor, gi_proveedor.email_proveedor, gi_medicion.nit_proveedor, COUNT(*) as conteo FROM gi_medicion  JOIN gi_proveedor ON gi_medicion.nit_proveedor = gi_proveedor.nit_proveedor  WHERE YEAR(fecha_inicio) = 2022  GROUP BY gi_proveedor.nombre_proveedor, gi_proveedor.email_proveedor, gi_medicion.nit_proveedor  ORDER BY conteo DESC ")
+    res.json(result.recordset)
+    console.log(result)
+  } catch (error) {
+    console.error(error)
+  }
+})
+
 
 app.listen(5000, function (params) {
   console.log("Server is running on port 5000");
