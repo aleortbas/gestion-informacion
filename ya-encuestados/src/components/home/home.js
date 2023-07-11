@@ -7,7 +7,9 @@ function Home() {
         <div className="container">
           <h1 className="display-4">YaEncuestados</h1>
           <p className="lead">
-            Sistema para la gestion de proyectos y informacion relacionada
+            Sistema para la gestion de proyectos y informacion relacionada.
+            <br></br>
+            Recuerde que necesitara de una cuenta si desea manipular la informacion
           </p>
         </div>
       </div>

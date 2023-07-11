@@ -1,7 +1,6 @@
 .footer {
-    flex-shrink: 0;
-    width: 100%;
-    height: 60px;
-    background-color: #729351;
-  }
-  
+  flex-shrink: 0;
+  width: 100%;
+  height: 60px;
+  background-color: #05386b;
+}

@@ -20,16 +20,8 @@ function Navbar() {
             <a href="/" className="nav-item nav-link active">
               <i className="fa fa-home"></i> Inicio
             </a>
-            <a href="/consultar" className="nav-item nav-link">
-              <i className="fa fa-search"></i> Consultar
-            </a>
-            <a href="/registrar" className="nav-item nav-link">
-              <i className="fa fa-pencil-square-o"></i> Registrar
-            </a>
-          </div>
-          <div className="nav ms-auto">
-            <a href="#" className="nav-item nav-link">
-              <i className="fa fa-user"></i> #nombre usuario
+            <a href="/login" className="nav-item nav-link">
+              <i className="fa fa-pencil-square-o"></i> Registrarse
             </a>
           </div>
         </div>
