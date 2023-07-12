@@ -1,9 +1,30 @@
 import React, { useState } from "react";
+import { useNavigate } from 'react-router-dom';
+import axios from "axios";
 
 function Login() {
     const [showNameField, setShowNameField] = useState(false);
     const [showSignupButton, setShowSignupButton] = useState(true);
     const [showSigninButton, setShowSigninButton] = useState(true);
+    const [accessToken, setAccessToken] = useState(null);
+    const [emailAuth, setEmail] = useState(null);
+    const [passwordAuth, setPassword] = useState("");
+    const navigate = useNavigate()
+
+    const handleSubmitLogin = async (event, endpoint) => {
+        event.preventDefault();
+
+        try {
+            let res = await axios.post(`http://localhost:5000/${endpoint}`, {
+                email: emailAuth,
+                password: passwordAuth,
+            });
+            const { accessToken } = res.data;
+            setAccessToken(accessToken);
+        } catch (error) {
+            console.error(error);
+        }
+    };
 
     const handleSignupClick = () => {
         setShowNameField(true);
@@ -21,7 +42,7 @@ function Login() {
         <div className="container-login">
             <div className="form-box">
                 <h1>{showNameField ? "Registrarse" : "Iniciar sesión"}</h1>
-                <form>
+                <form onSubmit={(event) => handleSubmitLogin(event, "auth")}>
                     {showNameField && (
                         <div className="input-field" id="nameField">
                             <i className="fa-solid fa-user"></i>
@@ -30,11 +51,11 @@ function Login() {
                     )}
                     <div className="input-field">
                         <i className="fa-solid fa-envelope"></i>
-                        <input type="email" placeholder="Email" />
+                        <input type="email" placeholder="Email" name="email" onChange={(e) => setEmail(e.target.value)} />
                     </div>
                     <div className="input-field">
                         <i className="fa-solid fa-user"></i>
-                        <input type="password" placeholder="Password" />
+                        <input type="password" placeholder="Password" name="password" onChange={(e) => setPassword(e.target.value)} />
                     </div>
                     <p>
                         Ha olvidado la contraseña <a href="/">Recuperarla</a>
@@ -48,9 +69,8 @@ function Login() {
                             Registrarse
                         </button>
                         <button
-                            type="button"
+                            type="submit"
                             className="signin-button"
-                            onClick={handleSigninClick}
                         >
                             Iniciar sesión
                         </button>

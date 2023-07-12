@@ -13,7 +13,6 @@ import "./components/metricas/metricas.css"
 import "./components/discrepanciaMediciones/cargoSolicitado.css"
 import "./components/subareaSolicitante/subareaSolicitante.css"
 import "./components/login/login.css"
-import "./components/testLogin/loginForm.css"
 
 
 

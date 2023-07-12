@@ -10,7 +10,6 @@ import Proyectos from "./components/proyectos/proyectos";
 import Medicion from "./components/medicion/medicion"
 import Metricas from "./components/metricas/metricas";
 import Login from "./components/login/login";
-import LoginForm from "./components/testLogin/loginForm";
 
 function App() {
   return (
@@ -27,7 +26,6 @@ function App() {
           <Route path="/medicion" element={<Medicion />} />
           <Route path="/metricas" element={<Metricas />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/loginForm" element={<LoginForm />} />
         </Routes>
       </BrowserRouter>
     </div>
