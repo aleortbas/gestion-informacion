@@ -3,6 +3,8 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const pool = require("./dbConnection");
 const multer = require("multer")
+const jwt = require("jsonwebtoken")
+require("dotenv").config()
 
 const app = express();
 const upload = multer({ dest: "uploads/" });
@@ -429,6 +431,29 @@ app.get("/proveedorMasSolicitado", async (req, res) => {
   }
 })
 
+app.post('/auth', async (req, res) => {
+  const {
+    email,
+    password
+  } = req.body
+
+  try {
+    const result = await pool.request()
+      .input("email", email)
+      .input("password", password)
+      .query("SELECT * FROM gi_cliente WHERE email_cliente =@email AND contraseña =@password")
+    const user = { email: email };
+    const accessToken = generateAccesToken(user);
+    console.log("TOKEN: ", accessToken);
+    res.json(accessToken)
+  } catch (error) {
+    console.log(error)
+  }
+})
+
+function generateAccesToken(user) {
+  return jwt.sign(user, process.env.SECRET, { expiresIn: '5m' });
+}
 
 app.listen(5000, function (params) {
   console.log("Server is running on port 5000");
