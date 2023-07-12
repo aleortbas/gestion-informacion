@@ -15,12 +15,16 @@ function Login() {
         event.preventDefault();
 
         try {
-            let res = await axios.post(`http://localhost:5000/${endpoint}`, {
+            const res = await axios.post(`http://localhost:5000/${endpoint}`, {
                 email: emailAuth,
                 password: passwordAuth,
             });
-            const { accessToken } = res.data;
-            setAccessToken(accessToken);
+            const accessToken = res.data;
+            if (accessToken != null) {
+                navigate("/home")
+            } else if (accessToken === null) {
+                alert("Email o contraseña incorrecta")
+            }
         } catch (error) {
             console.error(error);
         }
