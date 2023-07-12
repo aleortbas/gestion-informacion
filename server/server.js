@@ -443,9 +443,18 @@ app.post('/auth', async (req, res) => {
       .input("password", password)
       .query("SELECT * FROM gi_cliente WHERE email_cliente =@email AND contraseña =@password")
     const user = { email: email };
-    const accessToken = generateAccesToken(user);
-    console.log("TOKEN: ", accessToken);
-    res.json(accessToken)
+
+    const count = result.recordset[0];
+    //console.log(count)
+
+    if (count != null) {
+      const accessToken = generateAccesToken(user);
+      //console.log("TOKEN: ", accessToken);
+      res.json(accessToken)
+    } else {
+      res.json(null)
+    }
+
   } catch (error) {
     console.log(error)
   }
