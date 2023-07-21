@@ -18,13 +18,13 @@ function Home() {
         <div className="col-md-4 ">
           <div className="card">
             <div className="card-body">
-              <h5 className="card-title">Area</h5>
+              <h5 className="card-title">Empresa</h5>
               <p className="card-text">
                 {" "}
-                Coordina y gestiona de manera eficiente las areas que poseen o
+                Coordina y gestiona de manera eficiente las Empresa que poseen o
                 poseeran proyectos.
               </p>
-              <a href="/area" className="btn btn-paginas">
+              <a href="/empresa" className="btn btn-paginas">
                 Abrir
               </a>
             </div>

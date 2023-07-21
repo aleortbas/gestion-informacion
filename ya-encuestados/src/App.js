@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/navbar/navabar";
 import Footer from "./components/footer/footer";
 import Home from "./components/home/home";
-import Area from "./components/area/area";
+import Empresa from "./components/empresa/empresa";
 import Cliente from "./components/cliente/cliente";
 import Proveedor from "./components/proveedor/proveedor";
 import Proyectos from "./components/proyectos/proyectos";
@@ -20,7 +20,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/home" element={<Home />} />
-          <Route path="/area" element={<Area />} />
+          <Route path="/empresa" element={<Empresa />} />
           <Route path="/cliente" element={<Cliente />} />
           <Route path="/proveedor" element={<Proveedor />} />
           <Route path="/proyectos" element={<Proyectos />} />

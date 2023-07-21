@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-function Area() {
+function Empresa() {
   const [data, setData] = useState([]);
   const [showElement, setShowElement] = useState(false);
 
@@ -58,7 +58,7 @@ function Area() {
 
   async function fetchData() {
     try {
-      const response = await axios.get("http://localhost:5000/area");
+      const response = await axios.get("http://localhost:5000/empresa");
       setData(response.data);
     } catch (error) {
       console.error(error);
@@ -236,14 +236,6 @@ function Area() {
                   <td>
                     <button
                       type="submit"
-                      class="btn red"
-                      id="areaButton"
-                      onClick="eliminarTest()"
-                    >
-                      Elimnar
-                    </button>
-                    <button
-                      type="submit"
                       class="btn orange"
                       id="areaButton"
                       onClick={() => handleClick(item)}
@@ -314,8 +306,8 @@ function Area() {
                       id="codUnidad"
                       placeholder="Codigo de la unidad"
                       name="cod_unidad"
-                      value={codArea}
-                      onChange={(e) => setCodArea(e.target.value)}
+                      value={codUnidad}
+                      onChange={(e) => setCodUnidad(e.target.value)}
                     />
                   </div>
                 </div>
@@ -413,4 +405,4 @@ function Area() {
   );
 }
 
-export default Area;
+export default Empresa;
