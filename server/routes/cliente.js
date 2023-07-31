@@ -1,7 +1,6 @@
 const express = require("express");
 const pool = require("../dbconnection")
 const bodyParser = require("body-parser");
-const { route } = require("./empresa");
 
 const router = express.Router();
 router.use(bodyParser.urlencoded({ extended: false }));
