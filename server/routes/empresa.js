@@ -1,5 +1,5 @@
 const express = require("express");
-const pool = require("../dbConnection");
+const pool = require("../dbconnection")
 const bodyParser = require("body-parser");
 
 const router = express.Router();
