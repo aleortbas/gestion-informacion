@@ -35,6 +35,7 @@ function Proyectos() {
             let res = await axios.post(`http://localhost:5000/${endpoint}`, {
                 id_proyecto: id_proyecto,
                 id_subarea: id_subarea,
+                fecha_inicio: fecha_inicio,
                 nombre_proyecto: nombre_proyecto,
                 abreviatura: abreviatura,
                 periodicidad: periodicidad,
