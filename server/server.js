@@ -6,6 +6,7 @@ const empresaRoute = require("./routes/empresa");
 const clienteRoute = require("./routes/cliente")
 const proveedorRoure = require("./routes/proveedor")
 const proyectoRoute = require("./routes/proyectos")
+const medicionRoute = require("./routes/medicion")
 
 require("dotenv").config();
 
@@ -21,6 +22,7 @@ app.use("/", empresaRoute);
 app.use("/", clienteRoute)
 app.use("/", proveedorRoure)
 app.use("/", proyectoRoute)
+app.use("/", medicionRoute)
 
 app.listen(5000, function () {
   console.log("Server is running on port 5000");
