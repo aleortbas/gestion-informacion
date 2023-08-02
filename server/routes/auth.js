@@ -8,7 +8,7 @@ const router = express.Router();
 router.use(bodyParser.urlencoded({ extended: false }));
 router.use(bodyParser.json());
 
-router.post('/', async (req, res) => {
+router.route("/auth").post(async (req, res) => {
     const {
         email,
         password
@@ -32,6 +32,21 @@ router.post('/', async (req, res) => {
             res.json(null)
         }
 
+    } catch (error) {
+        console.log(error)
+    }
+})
+
+router.route("/registro").post(async function (req, res) {
+    const {
+        email,
+        password
+    } = req.body
+    try {
+        const result = await pool.request()
+            .input("email", email)
+            .input("password", password)
+            .query("INSERT INTO gi_cliente (email_cliente, contraseña, nombre_cliente, cod_puesto, nombre_puesto, familia_cargo, tipo_usuario, id_subarea) SELECT email_corporativo AS email_cliente,@password AS contraseña,nombre_cliente AS nombre_cliente,cod_puesto,nombre_puesto,familia_cargo,'1' AS tipo_usuario, id_subarea FROM gi_colaboradores WHERE email_corporativo = @email;")
     } catch (error) {
         console.log(error)
     }

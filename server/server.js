@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 
+const loginRoute = require("./routes/auth")
 const empresaRoute = require("./routes/empresa");
 const clienteRoute = require("./routes/cliente")
 const proveedorRoure = require("./routes/proveedor")
@@ -18,7 +19,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // Defining the routes
-app.use("/auth", require("./routes/auth"));
+app.use("/", loginRoute);
 app.use("/", empresaRoute);
 app.use("/", clienteRoute)
 app.use("/", proveedorRoure)
