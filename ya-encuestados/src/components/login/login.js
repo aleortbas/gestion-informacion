@@ -9,12 +9,14 @@ function Login() {
     const [accessToken, setAccessToken] = useState(null);
     const [emailAuth, setEmail] = useState(null);
     const [passwordAuth, setPassword] = useState("");
+    const [isSignup, setIsSignup] = useState(false); // New state for sign up or sign in
     const navigate = useNavigate()
 
-    const handleSubmitLogin = async (event, endpoint) => {
+    const handleSubmitLogin = async (event) => {
         event.preventDefault();
 
         try {
+            const endpoint = isSignup ? "registro" : "auth"; // Determine the endpoint based on the isSignup state
             const res = await axios.post(`http://localhost:5000/${endpoint}`, {
                 email: emailAuth,
                 password: passwordAuth,
@@ -34,25 +36,14 @@ function Login() {
         setShowNameField(true);
         setShowSignupButton(false);
         setShowSigninButton(true);
-    };
-
-    const handleSigninClick = () => {
-        setShowNameField(false);
-        setShowSignupButton(true);
-        setShowSigninButton(false);
+        setIsSignup(true); // Set isSignup to true when signing up
     };
 
     return (
         <div className="container-login">
             <div className="form-box">
                 <h1>{showNameField ? "Registrarse" : "Iniciar sesión"}</h1>
-                <form onSubmit={(event) => handleSubmitLogin(event, "auth")}>
-                    {showNameField && (
-                        <div className="input-field" id="nameField">
-                            <i className="fa-solid fa-user"></i>
-                            <input type="text" placeholder="Name" />
-                        </div>
-                    )}
+                <form onSubmit={handleSubmitLogin}>
                     <div className="input-field">
                         <i className="fa-solid fa-envelope"></i>
                         <input type="email" placeholder="Email" name="email" onChange={(e) => setEmail(e.target.value)} />
@@ -66,7 +57,7 @@ function Login() {
                     </p>
                     <div className="btn-field">
                         <button
-                            type="button"
+                            type="submit"
                             className="signup-button"
                             onClick={handleSignupClick}
                         >
