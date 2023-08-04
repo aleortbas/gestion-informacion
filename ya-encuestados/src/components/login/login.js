@@ -21,11 +21,19 @@ function Login() {
                 email: emailAuth,
                 password: passwordAuth,
             });
-            const accessToken = res.data;
-            if (accessToken != null) {
-                navigate("/home")
-            } else if (accessToken === null) {
-                alert("Email o contraseña incorrecta")
+            const loginResponse = res.data;
+            console.log(loginResponse);
+
+            if (loginResponse != null) {
+                if (endpoint === "auth") {
+                    // navigate("/home")
+                    alert("Inicio de sesion exitoso")
+                } else if (endpoint === "registro") {
+                    navigate("/home")
+                    alert("Usuario creado exitosamente")
+                }
+            } else if (loginResponse === null) {
+                alert("Email o contraseña incorrecta, verifique los datos ingresados")
             }
         } catch (error) {
             console.error(error);
@@ -38,6 +46,14 @@ function Login() {
         setShowSigninButton(true);
         setIsSignup(true); // Set isSignup to true when signing up
     };
+
+    const handleSigninClick = () => {
+        setShowNameField(true);
+        setShowSignupButton(true);
+        setShowSigninButton(true);
+        setIsSignup(true); // Set isSignup to true when signing up
+    };
+
 
     return (
         <div className="container-login">
