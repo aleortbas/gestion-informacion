@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import axios from "axios";
 
@@ -6,7 +6,6 @@ function Login() {
     const [showNameField, setShowNameField] = useState(false);
     const [showSignupButton, setShowSignupButton] = useState(true);
     const [showSigninButton, setShowSigninButton] = useState(true);
-    const [accessToken, setAccessToken] = useState(null);
     const [emailAuth, setEmail] = useState(null);
     const [passwordAuth, setPassword] = useState("");
     const [isSignup, setIsSignup] = useState(false); // New state for sign up or sign in
@@ -26,7 +25,7 @@ function Login() {
 
             if (loginResponse != null) {
                 if (endpoint === "auth") {
-                    // navigate("/home")
+                    navigate("/home")
                     alert("Inicio de sesion exitoso")
                 } else if (endpoint === "registro") {
                     navigate("/home")
@@ -47,48 +46,79 @@ function Login() {
         setIsSignup(true); // Set isSignup to true when signing up
     };
 
-    const handleSigninClick = () => {
-        setShowNameField(true);
-        setShowSignupButton(true);
-        setShowSigninButton(true);
-        setIsSignup(true); // Set isSignup to true when signing up
-    };
 
+
+    useEffect(() => {
+        const wrapper = document.querySelector('.wrapper')
+        const loginLink = document.querySelector('.login-link')
+        const registerLink = document.querySelector('.register-link')
+
+        registerLink.addEventListener('click', () => {
+            wrapper.classList.add('active')
+        })
+
+        loginLink.addEventListener('click', () => {
+            wrapper.classList.remove('active')
+        })
+    })
 
     return (
         <div className="container-login">
-            <div className="form-box">
-                <h1>{showNameField ? "Registrarse" : "Iniciar sesión"}</h1>
-                <form onSubmit={handleSubmitLogin}>
-                    <div className="input-field">
-                        <i className="fa-solid fa-envelope"></i>
-                        <input type="email" placeholder="Email" name="email" onChange={(e) => setEmail(e.target.value)} />
-                    </div>
-                    <div className="input-field">
-                        <i className="fa-solid fa-user"></i>
-                        <input type="password" placeholder="Password" name="password" onChange={(e) => setPassword(e.target.value)} />
-                    </div>
-                    <p>
-                        Ha olvidado la contraseña <a href="/">Recuperarla</a>
-                    </p>
-                    <div className="btn-field">
-                        <button
-                            type="submit"
-                            className="signup-button"
-                            onClick={handleSignupClick}
-                        >
-                            Registrarse
-                        </button>
-                        <button
-                            type="submit"
-                            className="signin-button"
-                        >
-                            Iniciar sesión
-                        </button>
-                    </div>
-                </form>
+            <div className="wrapper">
+
+                <span className="icon-close"><i className="fa-solid fa-xmark"></i></span>
+
+                <div className="form-box login">
+                    <h2>Login</h2>
+                    <form action="#" onSubmit={handleSubmitLogin}>
+                        <div className="input-box">
+                            <span className="icon"><i className="fa-solid fa-user"></i></span>
+                            <input type="email" placeholder="Email" name="email" onChange={(e) => setEmail(e.target.value)} required />
+                            <label>Email</label>
+                        </div>
+                        <div className="input-box">
+                            <span className="icon"><i className="fa-solid fa-lock"></i></span>
+                            <input type="password" placeholder="Password" name="password" onChange={(e) => setPassword(e.target.value)} required />
+                            <label>Contraseña</label>
+                        </div>
+                        <div className="remeber-forogt">
+                            <label><input type="checkbox" /> Recordar Usuario</label>
+                            <a href="#">Olvidaste la contraseña</a>
+                        </div>
+                        <button type="submit" className="btn" id="login">Iniciar sesion</button>
+                        <div className="login-register">
+                            <p>No tienes una cuenta<a href="#"
+                                className="register-link"> Registrate</a></p>
+                        </div>
+                    </form>
+                </div>
+
+                <div className="form-box register">
+                    <h2>Registro</h2>
+                    <form action="#" onSubmit={handleSubmitLogin}>
+                        <div className="input-box">
+                            <span className="icon"><i className="fa-solid fa-user"></i></span>
+                            <input type="email" placeholder="Email" name="email" onChange={(e) => setEmail(e.target.value)} required />
+                            <label>Email</label>
+                        </div>
+                        <div className="input-box">
+                            <span className="icon"><i className="fa-solid fa-lock"></i></span>
+                            <input type="password" placeholder="Password" name="password" onChange={(e) => setPassword(e.target.value)} required />
+                            <label>Contraseña</label>
+                        </div>
+                        <div className="remeber-forogt">
+                            <label><input type="checkbox" /> Acepta los terminos y condicciones</label>
+                        </div>
+                        <button type="submit" className="btn" id="login" onClick={handleSignupClick}>Crear cuenta</button>
+                        <div className="login-link">
+                            <p>Ya tienes una<a href="#"
+                                className="register-link"> cuenta</a></p>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
+
     );
 }
 
