@@ -83,9 +83,9 @@
 
 .input-box label {
     position: absolute;
-    top: 50%;
+    top: 0%;
     left: 5px;
-    transform: translateY(-50%);
+    transform: translateY(-60%);
     font-size: 1em;
     font-weight: 500;
     pointer-events: none;
@@ -94,7 +94,7 @@
 
 .input-box input:focus~label,
 .input-box input:valid~label {
-    top: -5px;
+    top: -8px;
 }
 
 .input-box input {

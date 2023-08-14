@@ -7,7 +7,7 @@ function Navbar() {
       <nav className="navigation">
         <a href="#">Inicio</a>
         <a href="#">Acerca de</a>
-        <button className="btnLogin-popup">Login</button>
+        <button className="btnLogin-popup">Cerrar session</button>
       </nav>
     </header>
   );

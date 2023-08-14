@@ -21,10 +21,13 @@ function Login() {
                 password: passwordAuth,
             });
             const loginResponse = res.data;
-            console.log(loginResponse);
+            console.log("TOKEN", loginResponse);
 
             if (loginResponse != null) {
                 if (endpoint === "auth") {
+                    localStorage.setItem("accessToken", loginResponse)
+                    axios.defaults.headers.common['Authorization'] = `Bearer ${loginResponse}`;
+                    console.log(axios.defaults.headers.common['Authorization'] = `Bearer ${loginResponse}`);
                     navigate("/home")
                     alert("Inicio de sesion exitoso")
                 } else if (endpoint === "registro") {
