@@ -2,12 +2,13 @@ const express = require("express")
 const pool = require("../dbconnection")
 const bodyParser = require("body-parser")
 const { route } = require("./empresa")
+const authMiddleware = require('../middleware');
 
 const router = express.Router()
 router.use(bodyParser.urlencoded({ extended: false }))
 router.use(bodyParser.json())
 
-router.route("/proveedor").get(async function (req, res) {
+router.route("/proveedor").get(authMiddleware, async function (req, res) {
     try {
         const result = await pool.request().query("SELECT * FROM gi_proveedor");
         res.json(result.recordset)
@@ -17,7 +18,7 @@ router.route("/proveedor").get(async function (req, res) {
     }
 })
 
-router.route("/anadirProveedor").post(async function (req, res) {
+router.route("/anadirProveedor").post(authMiddleware, async function (req, res) {
     const {
         nit,
         nombre_proveedor,
@@ -47,7 +48,7 @@ router.route("/anadirProveedor").post(async function (req, res) {
     }
 })
 
-router.route("/editarProveedor").post(async function (req, res) {
+router.route("/editarProveedor").post(authMiddleware, async function (req, res) {
     const {
         nit,
         nombre_proveedor,
@@ -77,7 +78,7 @@ router.route("/editarProveedor").post(async function (req, res) {
     }
 })
 
-router.route("/eliminarProveedor/:email").delete(async function (req, res) {
+router.route("/eliminarProveedor/:email").delete(authMiddleware, async function (req, res) {
     const email_proveedor = req.params.email
     try {
         let res = await pool.request()

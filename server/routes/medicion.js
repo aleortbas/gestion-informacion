@@ -1,12 +1,13 @@
 const express = require("express")
 const pool = require("../dbconnection")
 const bodyParser = require("body-parser")
+const authMiddleware = require('../middleware');
 
 const router = express.Router()
 router.use(bodyParser.urlencoded({ extended: false }))
 router.use(bodyParser.json())
 
-router.route("/medicion").get(async function (req, res) {
+router.route("/medicion").get(authMiddleware, async function (req, res) {
     try {
         const result = await pool.request().query("SELECT * FROM gi_medicion")
         res.json(result.recordset)
@@ -15,7 +16,7 @@ router.route("/medicion").get(async function (req, res) {
     }
 })
 
-router.route("/anadirMedicion").post(async function (req, res) {
+router.route("/anadirMedicion").post(authMiddleware, async function (req, res) {
     const {
         id_proyecto,
         email_cliente,
@@ -43,7 +44,7 @@ router.route("/anadirMedicion").post(async function (req, res) {
     }
 })
 
-router.route("/editarMedicion").post(async function (req, res) {
+router.route("/editarMedicion").post(authMiddleware, async function (req, res) {
     const {
         id_medicion,
         id_proyecto,
@@ -73,7 +74,7 @@ router.route("/editarMedicion").post(async function (req, res) {
     }
 })
 
-router.route("/eliminarMedicion/:idMedicion").delete(async function (req, res) {
+router.route("/eliminarMedicion/:idMedicion").delete(authMiddleware, async function (req, res) {
     const idMedicion = req.params.idMedicion
     try {
         const result = await pool.request()

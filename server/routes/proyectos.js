@@ -1,12 +1,13 @@
 const express = require("express")
 const pool = require("../dbconnection")
 const bodyParser = require("body-parser")
+const authMiddleware = require('../middleware');
 
 const router = express.Router()
 router.use(bodyParser.urlencoded({ extended: false }))
 router.use(bodyParser.json())
 
-router.route("/proyecto").get(async function (req, res) {
+router.route("/proyecto").get(authMiddleware, async function (req, res) {
     try {
         const result = await pool.request().query("SELECT * FROM gi_proyecto")
         res.json(result.recordset)
@@ -15,7 +16,7 @@ router.route("/proyecto").get(async function (req, res) {
     }
 })
 
-router.route("/anadirProyecto").post(async function (req, res) {
+router.route("/anadirProyecto").post(authMiddleware, async function (req, res) {
     const {
         id_subarea,
         nombre_proyecto,
@@ -40,7 +41,7 @@ router.route("/anadirProyecto").post(async function (req, res) {
     }
 })
 
-router.route("/editarProyecto").post(async function (req, res) {
+router.route("/editarProyecto").post(authMiddleware, async function (req, res) {
     const {
         id_proyecto,
         id_subarea,
@@ -66,7 +67,7 @@ router.route("/editarProyecto").post(async function (req, res) {
     }
 })
 
-router.route("/eliminarProyecto/:idProyecto").delete(async function (req, res) {
+router.route("/eliminarProyecto/:idProyecto").delete(authMiddleware, async function (req, res) {
     const idProyecto = req.params.idProyecto
     try {
         let res = await pool.request()

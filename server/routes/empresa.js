@@ -48,7 +48,7 @@ router.route("/anadirEmpresa").post(async (req, res) => {
     }
 })
 
-router.route("/editarEmpresa").post(async (req, res) => {
+router.route("/editarEmpresa").post(authMiddleware, async (req, res) => {
     const {
         cod_empresa,
         nombre_empresa,
