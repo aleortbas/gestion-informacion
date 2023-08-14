@@ -1,12 +1,13 @@
 const express = require("express");
 const pool = require("../dbconnection")
 const bodyParser = require("body-parser");
+const authMiddleware = require('../middleware');
 
 const router = express.Router();
 router.use(bodyParser.urlencoded({ extended: false }));
 router.use(bodyParser.json());
 
-router.get("/empresa", async function (req, res) {
+router.route("/empresa").get(authMiddleware, async function (req, res) {
     try {
         const result = await pool.request().query("SELECT * FROM gi_empresa");
         res.json(result.recordset);

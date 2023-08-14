@@ -22,18 +22,19 @@ router.route("/auth").post(async (req, res) => {
             .query("SELECT * FROM gi_cliente WHERE email_cliente = @email");
 
         const passwordQuery = result.recordset[0].contraseña
-        console.log(passwordQuery);
-        console.log(password);
+
         const user = { email: email };
         const count = result.recordset[0];
 
+        console.log(user);
+
         const isMatch = await bcrypt.compare(password, passwordQuery)
-        console.log(isMatch);
 
         if (isMatch === true) {
             if (count != null) {
-                const accessToken = generateAccesToken(user);
-                res.json(accessToken);
+                const token = jwt.sign(user, process.env.SECRET, { expiresIn: "1h" })
+                console.log("TOKEN: ", token);
+                res.json(token);
             }
         } else {
             res.json(null)
@@ -85,7 +86,7 @@ router.route("/registro").post(async function (req, res) {
 })
 
 function generateAccesToken(user) {
-    return jwt.sign(user, process.env.SECRET, { expiresIn: '5m' });
+    return jwt.sign({ user }, 'process.env.SECRET', { expiresIn: '5m' });
 }
 
 module.exports = router;
