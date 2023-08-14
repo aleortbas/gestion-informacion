@@ -50,9 +50,14 @@ router.route("/auth").post(async (req, res) => {
 router.route("/registro").post(async function (req, res) {
     const {
         email,
-        password
+        password,
+        nombre,
+        nombrePuesto,
+        codigoArea
     } = req.body
     const rounds = 10
+
+    console.log("nombre: ", nombre, " nombre puesto: ", nombrePuesto, " codigoArea: ", codigoArea);
 
     bcrypt.hash(password, rounds, async (err, hash) => {
         if (err) {
@@ -64,7 +69,10 @@ router.route("/registro").post(async function (req, res) {
             const result = await pool.request()
                 .input("email", email)
                 .input("password", hash)
-                .query("INSERT INTO gi_cliente (email_cliente, contraseña, nombre_cliente, cod_puesto, nombre_puesto, familia_cargo, tipo_usuario, id_subarea) SELECT email_corporativo AS email_cliente,@password AS contraseña,nombre_cliente AS nombre_cliente,cod_puesto,nombre_puesto,familia_cargo,'1' AS tipo_usuario, id_subarea FROM gi_colaboradores WHERE email_corporativo = @email;")
+                .input("nombre", nombre)
+                .input("nombrePuesto", nombrePuesto)
+                .input("codigoArea", codigoArea)
+                .query("INSERT INTO [dbo].[gi_cliente]([email_cliente],[contraseña],[nombre_cliente],[nombre_puesto],[id_subarea])VALUES(@email, @password, @nombre, @nombrePuesto, @codigoArea)")
 
             const user = { email: email }
             const count = result.rowsAffected[0]
