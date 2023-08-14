@@ -53,25 +53,7 @@ function Cliente() {
     return (
         <div className="container-fluid cliente-container">
             <div className="row">
-                <div className="col-4 d-flex align-items-center">
-                    <form method="post" onSubmit={(event) => handleSubmitCliente(event, "anadiCliente")}>
-                        <div class="form-group">
-                            <label><b>Email corporativo</b></label>
-                            <input type="email" class="form-control" name="email_cliente" id="email_cliente" placeholder="Ingrese su correo corporativo"
-                                onChange={(e) => setEmailCliente(e.target.value)}
-                                style={{ width: "350px" }} />
-                            <button
-                                type="submit"
-                                class="btn orange"
-                                id="areaButton"
-                            >
-                                Agregar
-                            </button>
-                        </div>
-                    </form>
-                </div>
-
-                <div className="col-8">
+                <div className="col-12 d-flex align-items-center">
                     <div className="table-container">
                         <table className="table table-border table-hover">
                             <thead>
