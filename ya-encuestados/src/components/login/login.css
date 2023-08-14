@@ -18,11 +18,12 @@
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    transition: height .2s ease;
+    transition: height .7s ease;
 }
 
 .wrapper.active {
-    height: 520px;
+    transform: translateY(120px);
+    height: 680px;
 }
 
 .wrapper .form-box {
@@ -31,7 +32,7 @@
 }
 
 .wrapper .form-box.login {
-    transition: transform .18s ease;
+    transition: transform .6s ease;
     transform: matrix(0);
 }
 
@@ -42,7 +43,7 @@
 }
 
 .wrapper.active .form-box.register {
-    transition: transform .18s ease;
+    transition: transform .6s ease;
     transform: translateX(0);
 }
 
@@ -89,7 +90,7 @@
     font-size: 1em;
     font-weight: 500;
     pointer-events: none;
-    transition: .5s;
+    transition: .6s;
 }
 
 .input-box input:focus~label,
@@ -106,6 +107,14 @@
     font-size: 1em;
     font-weight: 600;
     padding: 0 35px 0 5px;
+}
+
+.input-box select {
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    background-color: transparent;
 }
 
 .input-box .icon {

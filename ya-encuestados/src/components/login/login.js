@@ -6,8 +6,12 @@ function Login() {
     const [showNameField, setShowNameField] = useState(false);
     const [showSignupButton, setShowSignupButton] = useState(true);
     const [showSigninButton, setShowSigninButton] = useState(true);
+
     const [emailAuth, setEmail] = useState(null);
     const [passwordAuth, setPassword] = useState("");
+    const [nombre, setNombre] = useState(null);
+    const [nombrePuesto, setNombrePuesto] = useState(null);
+    const [codigoArea, setCodigoArea] = useState(null);
     const [isSignup, setIsSignup] = useState(false); // New state for sign up or sign in
     const navigate = useNavigate()
 
@@ -19,6 +23,9 @@ function Login() {
             const res = await axios.post(`http://localhost:5000/${endpoint}`, {
                 email: emailAuth,
                 password: passwordAuth,
+                nombre: nombre,
+                nombrePuesto: nombrePuesto,
+                codigoArea: codigoArea
             });
             const loginResponse = res.data;
             console.log("TOKEN", loginResponse);
@@ -66,59 +73,79 @@ function Login() {
     })
 
     return (
-        <div className="container-login">
-            <div className="wrapper">
+        <div className="wrapper">
 
-                <span className="icon-close"><i className="fa-solid fa-xmark"></i></span>
+            <span className="icon-close"><i className="fa-solid fa-xmark"></i></span>
 
-                <div className="form-box login">
-                    <h2>Login</h2>
-                    <form action="#" onSubmit={handleSubmitLogin}>
-                        <div className="input-box">
-                            <span className="icon"><i className="fa-solid fa-user"></i></span>
-                            <input type="email" placeholder="Email" name="email" onChange={(e) => setEmail(e.target.value)} required />
-                            <label>Email</label>
-                        </div>
-                        <div className="input-box">
-                            <span className="icon"><i className="fa-solid fa-lock"></i></span>
-                            <input type="password" placeholder="Password" name="password" onChange={(e) => setPassword(e.target.value)} required />
-                            <label>Contraseña</label>
-                        </div>
-                        <div className="remeber-forogt">
-                            <label><input type="checkbox" /> Recordar Usuario</label>
-                            <a href="#">Olvidaste la contraseña</a>
-                        </div>
-                        <button type="submit" className="btn" id="login">Iniciar sesion</button>
-                        <div className="login-register">
-                            <p>No tienes una cuenta<a href="#"
-                                className="register-link"> Registrate</a></p>
-                        </div>
-                    </form>
-                </div>
+            <div className="form-box login">
+                <h2>Login</h2>
+                <form action="#" onSubmit={handleSubmitLogin}>
+                    <div className="input-box">
+                        <span className="icon"><i className="fa-solid fa-user"></i></span>
+                        <input type="email" placeholder="Email" name="email" onChange={(e) => setEmail(e.target.value)} required />
+                        <label>Email</label>
+                    </div>
+                    <div className="input-box">
+                        <span className="icon"><i className="fa-solid fa-lock"></i></span>
+                        <input type="password" placeholder="Password" name="password" onChange={(e) => setPassword(e.target.value)} required />
+                        <label>Contraseña</label>
+                    </div>
+                    <div className="remeber-forogt">
+                        <label><input type="checkbox" /> Recordar Usuario</label>
+                        <a href="#">Olvidaste la contraseña</a>
+                    </div>
+                    <button type="submit" className="btn" id="login">Iniciar sesion</button>
+                    <div className="login-register">
+                        <p>No tienes una cuenta<a href="#"
+                            className="register-link"> Registrate</a></p>
+                    </div>
+                </form>
+            </div>
 
-                <div className="form-box register">
-                    <h2>Registro</h2>
-                    <form action="#" onSubmit={handleSubmitLogin}>
-                        <div className="input-box">
-                            <span className="icon"><i className="fa-solid fa-user"></i></span>
-                            <input type="email" placeholder="Email" name="email" onChange={(e) => setEmail(e.target.value)} required />
-                            <label>Email</label>
-                        </div>
-                        <div className="input-box">
-                            <span className="icon"><i className="fa-solid fa-lock"></i></span>
-                            <input type="password" placeholder="Password" name="password" onChange={(e) => setPassword(e.target.value)} required />
-                            <label>Contraseña</label>
-                        </div>
-                        <div className="remeber-forogt">
-                            <label><input type="checkbox" /> Acepta los terminos y condicciones</label>
-                        </div>
-                        <button type="submit" className="btn" id="login" onClick={handleSignupClick}>Crear cuenta</button>
-                        <div className="login-link">
-                            <p>Ya tienes una<a href="#"
-                                className="register-link"> cuenta</a></p>
-                        </div>
-                    </form>
-                </div>
+            <div className="form-box register">
+                <h2>Registro</h2>
+                <form action="#" onSubmit={handleSubmitLogin}>
+                    <div className="input-box">
+                        <span className="icon"><i className="fa-solid fa-user"></i></span>
+                        <input type="text" placeholder="Nombre" name="nombre" onChange={(e) => setNombre(e.target.value)} required />
+                        <label>Nombre</label>
+                    </div>
+                    <div className="input-box">
+                        <span className="icon"><i className="fa-solid fa-envelope"></i></span>
+                        <input type="email" placeholder="Email" name="email" onChange={(e) => setEmail(e.target.value)} required />
+                        <label>Email</label>
+                    </div>
+                    <div className="input-box">
+                        <span className="icon"><i className="fa-solid fa-lock"></i></span>
+                        <input type="password" placeholder="Password" name="password" onChange={(e) => setPassword(e.target.value)} required />
+                        <label>Contraseña</label>
+                    </div>
+                    <div className="input-box">
+                        <span className="icon"><i className="fa-solid fa-pen-fancy"></i></span>
+                        <input type="text" placeholder="Nombre del puesto" name="nombrePuesto" onChange={(e) => setNombrePuesto(e.target.value)} required />
+                        <label>Nombre puesto</label>
+                    </div>
+                    <div className="input-box">
+                        <span className="icon"><i className="fa-solid fa-user"></i></span>
+                        <select name="codigoArea" onChange={(e) => setCodigoArea(e.target.value)}>
+                            <option value="10051">10051</option>
+                            <option value="10145">10145</option>
+                            <option value="10150">10150</option>
+                            <option value="10211">10211</option>
+                            <option value="10238">10238</option>
+                            <option value="10574">10574</option>
+                        </select>
+                        <label>Codigo area</label>
+                    </div>
+                    <div className="remeber-forogt">
+                        <label><input type="checkbox" /> Acepta los terminos y condicciones</label>
+                    </div>
+                    <button type="submit" className="btn" id="login" onClick={handleSignupClick}>Crear cuenta</button>
+                    <div className="login-link">
+                        <p>Ya tienes una<a href="#"
+                            className="register-link"> cuenta</a></p>
+                    </div>
+                </form>
             </div>
         </div>
 
