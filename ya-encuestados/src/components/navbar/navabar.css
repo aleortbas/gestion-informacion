@@ -11,7 +11,7 @@ header {
   left: 0;
   width: 100%;
   padding: 20px 100px;
-  background-color: #05386b;
+  background-color: #0F4C75;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -64,7 +64,7 @@ header {
   color: #fff;
   font-weight: 500;
   margin-left: 40px;
-  transition: .5s;
+  transition: 1s;
 }
 
 .navigation .btnLogin-popup:hover {

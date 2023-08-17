@@ -10,7 +10,7 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: #5cdb95;
+  background-color: #1B262C;
 }
 
 .btn {
@@ -20,7 +20,7 @@ body {
   font-weight: bold;
   height: 45px;
   display: flex;
-  border: 1.6px solid #729351;
+  border: 1.6px solid #395B64;
   border-radius: 4px;
   background-size: 300%;
   transition: all 0.7s;

@@ -15,86 +15,99 @@ function Home() {
         </div>
       </div>
 
-      <div className="row">
-        <div className="col-md-4 ">
-          <div className="card">
-            <div className="card-body">
-              <h5 className="card-title">Empresa</h5>
-              <p className="card-text">
-                {" "}
-                Coordina y gestiona de manera eficiente las Empresa que poseen o
-                poseeran proyectos.
-              </p>
-              <a href="/empresa" className="btn btn-paginas">
-                Abrir
-              </a>
-            </div>
-          </div>
 
-          <div className="card">
-            <div className="card-body">
-              <h5 className="card-title">Proyectos</h5>
-              <p className="card-text">
-                Almacenamiento de informacion historica de cada proyecto a la
-                fecha.
-              </p>
-              <a href="/proyectos" className="btn btn-paginas">
-                Abrir
-              </a>
-            </div>
-          </div>
-        </div>
-        <div className="col-md-4">
-          <div className="card">
-            <div className="card-body">
-              <h5 className="card-title">Clientes</h5>
-              <p className="card-text">
-                Sección de gestión de clientes: Agrega y edita clientes de la
-                plataforma.
-              </p>
-              <a href="/cliente" className="btn btn-paginas">
-                Abrir
-              </a>
-            </div>
-          </div>
 
-          <div className="card">
-            <div className="card-body">
-              <h5 className="card-title">Medicion</h5>
-              <p className="card-text">
-                Información detallada de cada medición realizada para una
-                encuesta
-              </p>
-              <a href="/medicion" className="btn btn-paginas">
-                Abrir
-              </a>
-            </div>
-          </div>
-        </div>
-        <div className="col-md-4">
-          <div className="card">
-            <div className="card-body">
-              <h5 className="card-title">Proveedor</h5>
-              <p className="card-text">
-                Gestion de empresas que dan apoyo para la recoleccion y analis
-                de encuestas.
-              </p>
-              <a href="/proveedor" className="btn btn-paginas">
-                Abrir
-              </a>
-            </div>
-          </div>
+      <div className="container">
+        <div className="row">
+          <div className="col-4 col-sm-4">
+            <a href="/empresa">
+              <div className="card-number">
+                <div className="content-container information">
+                  <div className="content">
+                    <span className="stars"></span>
+                    <h2></h2>
+                    <p>Coordina y gestiona de manera eficiente las Empresa que poseen o
+                      poseeran proyectos.
+                    </p>
+                  </div>
+                </div>
+                <div className="hoverable information">
+                  <h2>Empresa</h2>
+                </div>
+              </div>
+            </a>
 
-          <div className="card">
-            <div className="card-body">
-              <h5 className="card-title">Metricas</h5>
-              <p className="card-text">
-                Consulta de metricas generada con la base de datos
-              </p>
-              <a href="/metricas" className="btn btn-paginas">
-                Abrir
-              </a>
-            </div>
+          </div>
+          <div className="col-4 col-sm-4">
+            <a href="/proyectos">
+              <div className="card-number">
+                <div className="content-container information">
+                  <div className="content">
+                    <span className="stars"></span>
+                    <h2></h2>
+                    <p>Coordina y gestiona de manera eficiente las Empresa que poseen o
+                      poseeran proyectos.
+                    </p>
+                  </div>
+                </div>
+                <div className="hoverable information">
+                  <h2>Proyectos</h2>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div className="col-4 col-sm-4">
+            <a href="/medicion">
+              <div className="card-number">
+                <div className="content-container information">
+                  <div className="content">
+                    <span className="stars"></span>
+                    <h2></h2>
+                    <p>Información detallada de cada medición realizada para una
+                      encuesta
+                    </p>
+                  </div>
+                </div>
+                <div className="hoverable information">
+                  <h2>Medicion</h2>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div className="col-6 col-sm-6">
+            <a href="/proveedor">
+              <div className="card-number">
+                <div className="content-container information">
+                  <div className="content">
+                    <span className="stars"></span>
+                    <h2></h2>
+                    <p>Gestion de empresas que dan apoyo para la recoleccion y analis
+                      de encuestas.
+                    </p>
+                  </div>
+                </div>
+                <div className="hoverable information">
+                  <h2>Proveedor</h2>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div className="col-6 col-sm-6">
+            <a href="/metricas">
+              <div className="card-number">
+                <div className="content-container information">
+                  <div className="content">
+                    <span className="stars"></span>
+                    <h2></h2>
+                    <p>Consulta de metricas generada con la base de datos
+                    </p>
+                  </div>
+                </div>
+                <div className="hoverable information">
+                  <h2>Metricas</h2>
+                </div>
+              </div>
+            </a>
           </div>
         </div>
       </div>

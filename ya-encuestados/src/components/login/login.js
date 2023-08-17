@@ -75,10 +75,8 @@ function Login() {
     return (
         <div className="wrapper">
 
-            <span className="icon-close"><i className="fa-solid fa-xmark"></i></span>
-
             <div className="form-box login">
-                <h2>Login</h2>
+                <h2>Iniciar sesion</h2>
                 <form action="#" onSubmit={handleSubmitLogin}>
                     <div className="input-box">
                         <span className="icon"><i className="fa-solid fa-user"></i></span>
@@ -90,14 +88,10 @@ function Login() {
                         <input type="password" placeholder="Password" name="password" onChange={(e) => setPassword(e.target.value)} required />
                         <label>Contraseña</label>
                     </div>
-                    <div className="remeber-forogt">
-                        <label><input type="checkbox" /> Recordar Usuario</label>
-                        <a href="#">Olvidaste la contraseña</a>
-                    </div>
                     <button type="submit" className="btn" id="login">Iniciar sesion</button>
                     <div className="login-register">
-                        <p>No tienes una cuenta<a href="#"
-                            className="register-link"> Registrate</a></p>
+                        <p style={{ color: "#fff" }}>No tienes una cuenta<a href="#"
+                            className="register-link"> registrate</a></p>
                     </div>
                 </form>
             </div>
@@ -127,7 +121,7 @@ function Login() {
                     </div>
                     <div className="input-box">
                         <span className="icon"><i className="fa-solid fa-user"></i></span>
-                        <select name="codigoArea" onChange={(e) => setCodigoArea(e.target.value)}>
+                        <select style={{ color: "white" }} className="custom-select" name="codigoArea" onChange={(e) => setCodigoArea(e.target.value)}>
                             <option value="10051">10051</option>
                             <option value="10145">10145</option>
                             <option value="10150">10150</option>
@@ -137,12 +131,9 @@ function Login() {
                         </select>
                         <label>Codigo area</label>
                     </div>
-                    <div className="remeber-forogt">
-                        <label><input type="checkbox" /> Acepta los terminos y condicciones</label>
-                    </div>
                     <button type="submit" className="btn" id="login" onClick={handleSignupClick}>Crear cuenta</button>
                     <div className="login-link">
-                        <p>Ya tienes una<a href="#"
+                        <p style={{ color: "#fff" }}>Ya tienes una<a href="#"
                             className="register-link"> cuenta</a></p>
                     </div>
                 </form>

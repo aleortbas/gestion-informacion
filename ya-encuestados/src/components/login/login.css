@@ -9,8 +9,8 @@
     position: relative;
     width: 400px;
     height: 440px;
-    background: transparent;
-    border: 2px solid rgba(255, 255, 255, .5);
+    background: #0F4C75;
+    border: 2px solid rgba(187, 225, 250, .5);
     border-radius: 20px;
     /*backdrop-filter: blur(20px);*/
     box-shadow: 0 0 30px rgba(0, 0, 0, .3);
@@ -52,24 +52,8 @@
     transform: translateX(-400px);
 }
 
-.wrapper .icon-close {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 45px;
-    height: 45px;
-    background-color: #05386b;
-    font-size: 2em;
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-bottom-left-radius: 20px;
-    cursor: pointer;
-    z-index: 1;
-}
-
 .form-box h2 {
+    color: #fff;
     font-size: 2em;
     text-align: center;
 }
@@ -86,11 +70,12 @@
     position: absolute;
     top: 0%;
     left: 5px;
-    transform: translateY(-60%);
+    transform: translateY(-80%);
     font-size: 1em;
     font-weight: 500;
     pointer-events: none;
     transition: .6s;
+    color: #fff;
 }
 
 .input-box input:focus~label,
@@ -102,6 +87,7 @@
     width: 100%;
     height: 100%;
     background: transparent;
+    color: #fff;
     border: none;
     outline: none;
     font-size: 1em;
@@ -122,33 +108,28 @@
     right: 8px;
     font-size: 1.2em;
     line-height: 57px;
+    color: #BBE1FA;
 }
 
-.remeber-forogt {
-    font-size: .9em;
-    font-weight: 500;
-    margin: -15px 0 15px;
-    display: flex;
-    justify-content: space-between;
+::placeholder {
+    color: #BBE1FA;
 }
 
-.remeber-forogt label input {
-    accent-color: #05386b;
-    margin-right: 3px;
-}
-
-.remeber-forogt a {
+p .register-link {
+    color: #BBE1FA;
     text-decoration: none;
 }
 
-.remeber-forogt a:hover {
-    text-decoration: underline;
+p .register-link:hover {
+    color: #1B262C;
+    text-decoration: none;
 }
+
 
 .btn#login {
     width: 100%;
     height: 45px;
-    background-color: #05386b;
+    background-color: #1B262C;
     border: none;
     outline: none;
     border-radius: 6px;
@@ -158,4 +139,27 @@
     font-weight: 500;
     justify-content: center;
     align-items: center;
+}
+
+select {
+    appearance: none;
+    border: 0;
+    outline: 0;
+    width: 20em;
+    height: 3em;
+    padding: 0 4em 0 1em;
+    border-radius: 0.25em;
+    cursor: pointer;
+}
+
+/* <option> colors */
+option {
+    color: inherit;
+    background-color: #162938;
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 50px rgb(15, 76, 117) inset;
+    /* Change the color to your own background color */
+    -webkit-text-fill-color: #fff;
 }
