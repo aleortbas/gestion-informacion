@@ -6,7 +6,7 @@ function Home() {
     <div className="container" style={{ marginBottom: "20px" }}>
       <div className="jumbotron">
         <div className="container">
-          <h1 className="display-4">YaEncuestados</h1>
+          <h1 className="display-4">G.I (gestion de la información)</h1>
           <p className="lead">
             Bienvenido a nuestro Sistema de Gestión de Proyectos y Información, la solución integral que revolucionará la forma en que gestionas tus proyectos y accedes a información relevante.
             <br></br>
