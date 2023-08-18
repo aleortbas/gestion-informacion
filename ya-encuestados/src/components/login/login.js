@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import axios from "axios";
+import swal from 'sweetalert';
 
 function Login() {
     const [showNameField, setShowNameField] = useState(false);
@@ -35,14 +36,20 @@ function Login() {
                     localStorage.setItem("accessToken", loginResponse)
                     axios.defaults.headers.common['Authorization'] = `Bearer ${loginResponse}`;
                     console.log(axios.defaults.headers.common['Authorization'] = `Bearer ${loginResponse}`);
-                    navigate("/home")
-                    alert("Inicio de sesion exitoso")
+                    swal("Bienvenido!", "Inicio de sesion exitoso!", "success");
+                    setTimeout(() => {
+                        navigate("/home")
+                    }, 2000)
                 } else if (endpoint === "registro") {
-                    navigate("/home")
-                    alert("Usuario creado exitosamente")
+                    swal("Bienvenido!", "Usuario creado exitosamente!", "success", {
+                        onClose: () => {
+                            // Navigate to home after alert is closed
+                            navigate("/home");
+                        }
+                    });
                 }
             } else if (loginResponse === null) {
-                alert("Email o contraseña incorrecta, verifique los datos ingresados")
+                swal("Error!", "Email o contraseña incorrecta, verifique los datos ingresados", "error");
             }
         } catch (error) {
             console.error(error);
