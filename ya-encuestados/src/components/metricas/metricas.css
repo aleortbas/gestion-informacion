@@ -1,20 +1,16 @@
-* {
-    box-sizing: border-box;
-}
-
-.wrapper {
+.wrapperMetricas {
     width: 100%;
-    margin: 0 auto;
+    margin-top: 102px;
 }
 
-.wrapper {
+.wrapperMetricas {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 10px;
     grid-auto-rows: minmax(100px, auto);
 }
 
-.wrapper>div {
+.wrapperMetricas>div {
     border-radius: 5px;
     padding: 1em;
 }
@@ -25,18 +21,21 @@
 }
 
 .two {
+    text-align: center;
+    height: 60%;
+    width: 100%;
     grid-column: 2 / 4;
     grid-row: 1 / 5;
+    overflow: auto;
+    /* Add this line */
 }
+
 
 
 .one {
     text-align: center;
-    box-shadow: 0px 0px 3px 3px #dddddd;
     height: 100%;
     width: 100%;
-    padding: 10px 15px;
-    border-radius: 10px;
 }
 
 .one .title {

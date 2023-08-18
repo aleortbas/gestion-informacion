@@ -3,14 +3,15 @@ import React, { useEffect } from "react";
 
 function Home() {
   return (
-    <div className="container">
+    <div className="container" style={{ marginBottom: "20px" }}>
       <div className="jumbotron">
         <div className="container">
           <h1 className="display-4">YaEncuestados</h1>
           <p className="lead">
-            Sistema para la gestion de proyectos y informacion relacionada.
+            Bienvenido a nuestro Sistema de Gestión de Proyectos y Información, la solución integral que revolucionará la forma en que gestionas tus proyectos y accedes a información relevante.
             <br></br>
-            Recuerde que necesitara de una cuenta si desea manipular la informacion
+            Descubre cómo nuestro sistema puede transformar la manera en que gestionas proyectos y accedes a información clave.
+            <br></br>
           </p>
         </div>
       </div>

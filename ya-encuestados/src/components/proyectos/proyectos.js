@@ -79,150 +79,134 @@ function Proyectos() {
     }
 
     return (
-        <div className="container-fluid proveedor-container">
+        <div className="container-fluid gi-container">
 
             <div className="col-12">
                 <form
                     method="post"
                     onSubmit={(event) => handleSubmitProyecto(event, showElement ? "editarProyecto" : "anadirProyecto")}
                 >
-                    <h5>Formato de edicion</h5>
+                    <h3>Formato de edicion</h3>
 
                     <div className="row">
                         <div className="col-6">
-                            <div class="form-group">
-                                <label class="form-label">Codigo del proyecto</label>
-                                <input
-                                    type="text"
-                                    class="form-control"
-                                    id="id_proyecto"
+                            <div className="input-box">
+                                <input type="text"
                                     placeholder="Id proyecto"
                                     name="id_proyecto"
                                     value={id_proyecto}
-                                    onChange={(e) => setid_proyecto(e.target.value)}
                                     readOnly={showElement}
-                                />
-                                <small class="form-text text-muted">
-                                    Debe de ser el codigo que se encuentra en listado Excel de
-                                    areas
-                                </small>
+                                    onChange={(e) =>
+                                        setid_proyecto(e.target.value)}
+                                    required />
+                                <label>Id proyecto</label>
                             </div>
                         </div>
                         <div className="col-6">
-                            <div class="form-group">
-                                <label class="form-label">Codigo de la subarea</label>
-                                <input
-                                    type="text"
-                                    class="form-control"
-                                    id="id_subarea"
+                            <div className="input-box">
+                                <input type="text"
                                     placeholder="Id subarea"
                                     name="id_subarea"
                                     value={id_subarea}
-                                    onChange={(e) => setid_subarea(e.target.value)}
-                                />
+                                    readOnly={showElement}
+                                    onChange={(e) =>
+                                        setid_subarea(e.target.value)}
+                                    required />
+                                <label>Codigo subarea</label>
                             </div>
                         </div>
                     </div>
 
                     <div className="row">
                         <div className="col-6">
-                            <div class="form-group">
-                                <label class="form-label">Nombre proyecto</label>
-                                <input
-                                    type="text"
-                                    class="form-control"
+                            <div className="input-box">
+                                <input type="text"
                                     id="nombre_proyecto"
                                     placeholder="Nombre del proyecto"
                                     name="nombre_proyecto"
                                     value={nombre_proyecto}
-                                    onChange={(e) => setnombre_proyecto(e.target.value)}
-                                />
+                                    onChange={(e) =>
+                                        setnombre_proyecto(e.target.value)}
+                                    required />
+                                <label>Codigo subarea</label>
                             </div>
                         </div>
                         <div className="col-6">
-                            <div class="form-group">
-                                <label class="form-label">Abreviatura</label>
-                                <input
-                                    type="text"
-                                    class="form-control"
+                            <div className="input-box">
+                                <input type="text"
                                     id="abreviatura"
                                     placeholder="abreviatura del proyecto"
                                     name="abreviatura"
                                     value={abreviatura}
                                     onChange={(e) => setAbreviatura(e.target.value)}
-                                />
+                                    required />
+                                <label>Codigo subarea</label>
                             </div>
                         </div>
                     </div>
                     <div className="row">
                         <div className="col-6">
-                            <div class="form-group">
-                                <label class="form-label">Fecha de inicio</label>
-                                <input
-                                    type="text"
-                                    class="form-control"
-                                    id="fecha_inicio"
+                            <div className="input-box">
+                                <input type="text"
+                                    id="nombre_proyecto"
                                     placeholder="Fecha de inicio"
                                     name="fecha_inicio"
                                     value={fecha_inicio}
                                     onChange={(e) => setfecha_inicio(e.target.value)}
                                     readOnly={showElement}
-                                />
+                                    required />
+                                <label>Fecha de inicio</label>
                             </div>
                         </div>
                         <div className="col-6">
-                            <div class="form-group">
-                                <label class="form-label">Periodicidad</label>
-                                <input
-                                    type="text"
-                                    class="form-control"
+                            <div className="input-box">
+                                <input type="text"
                                     id="periodicidad"
                                     placeholder="periodicidad"
                                     name="periodicidad"
                                     value={periodicidad}
                                     onChange={(e) => setPeriodicidad(e.target.value)}
-                                />
+                                    required />
+                                <label>Fecha de inicio</label>
                             </div>
                         </div>
                         {showElement && (
                             <><div className="col-6">
-                                <div class="form-group">
-                                    <label class="form-label">Tipo de estudio</label>
-                                    <input
-                                        type="text"
-                                        class="form-control"
+                                <div className="input-box">
+                                    <input type="text"
                                         id="tipoEstudio"
                                         placeholder="Tipo de estudio"
                                         name="tipoEstudio"
                                         value={tipo_estudio}
-                                        onChange={(e) => setTipo_estudio(e.target.value)} />
+                                        onChange={(e) => setTipo_estudio(e.target.value)}
+                                        required />
+                                    <label>Fecha de inicio</label>
                                 </div>
                             </div><div className="col-6">
-                                    <div class="form-group">
-                                        <label class="form-label">Conteo total de mediciones</label>
-                                        <input
-                                            type="text"
-                                            class="form-control"
+                                    <div className="input-box">
+                                        <input type="text"
                                             id="conteoTotal"
                                             placeholder="Conteo total de medicones"
                                             name="conteoTotal"
                                             value={conteo_total}
-                                            onChange={(e) => setConteoTotal(e.target.value)} />
+                                            onChange={(e) => setConteoTotal(e.target.value)}
+                                            required />
+                                        <label>Fecha de inicio</label>
                                     </div>
                                 </div></>
                         )}
                     </div>
 
                     <div className="button-container">
-                        <button type="submit" className="btn btn-paginas" id="agregar">
+                        <button type="submit" className="btn btn-paginas agregar" id="agregar">
                             Agregar
                         </button>
                         {showElement && (
-                            <button type="submit" className="btn btn-paginas" id="editar">
+                            <button type="submit" className="btn btn-paginas agregar" id="editar">
                                 Editar
                             </button>
                         )}
-                        <button type="button" className="btn btn-paginas" id="cancelar" onClick={resetForm}>
+                        <button type="button" className="btn btn-paginas red" onClick={resetForm}>
                             Cancelar
                         </button>
                     </div>

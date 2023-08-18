@@ -1,8 +1,8 @@
 .jumbotron {
   margin-top: 5%;
   margin-bottom: 0;
-  background-color: #1B262C;
-  color: #fff
+  background-color: transparent;
+  color: #495464
 }
 
 .card-number {
@@ -10,7 +10,7 @@
   width: 20rem;
   height: 15rem;
   margin: 0 auto;
-  background: #202020;
+  background: #495464;
   border-radius: 1rem;
   box-shadow: 0 15px 60px rgba(0, 0, 0, 0.5);
 }
@@ -47,7 +47,7 @@
 
 .card-number .hoverable {
   transition: 0.9s;
-  background-image: linear-gradient(40deg, #BBE1FA 0%, #3282B8 45%, #0F4C75 100%);
+  background-image: linear-gradient(45deg, #F4F4F2 0%, #BBBFCA 55%, #495464 120%);
   border-radius: 15px;
 }
 

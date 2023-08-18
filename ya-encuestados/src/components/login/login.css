@@ -9,10 +9,9 @@
     position: relative;
     width: 400px;
     height: 440px;
-    background: #0F4C75;
-    border: 2px solid rgba(187, 225, 250, .5);
+    background: #E8E8E8;
+    border: 2px solid #E8E8E8;
     border-radius: 20px;
-    /*backdrop-filter: blur(20px);*/
     box-shadow: 0 0 30px rgba(0, 0, 0, .3);
     display: flex;
     justify-content: center;
@@ -53,7 +52,7 @@
 }
 
 .form-box h2 {
-    color: #fff;
+    color: #495464;
     font-size: 2em;
     text-align: center;
 }
@@ -61,9 +60,9 @@
 .input-box {
     position: relative;
     width: 100%;
-    height: 50px;
-    border-bottom: 3px solid #162938;
-    margin: 30px 0;
+    height: 40px;
+    border-bottom: 3px solid #495464;
+    margin: 35px 0;
 }
 
 .input-box label {
@@ -75,7 +74,7 @@
     font-weight: 500;
     pointer-events: none;
     transition: .6s;
-    color: #fff;
+    color: #495464;
 }
 
 .input-box input:focus~label,
@@ -87,12 +86,22 @@
     width: 100%;
     height: 100%;
     background: transparent;
-    color: #fff;
+    color: #495464;
     border: none;
     outline: none;
     font-size: 1em;
     font-weight: 600;
     padding: 0 35px 0 5px;
+}
+
+.input-box input:focus::placeholder {
+    transition: 0.5s;
+    color: transparent;
+}
+
+.input-box:focus-within {
+    border-bottom: 3px solid #11BFAE;
+    /* Apply border color to .input-box on focus */
 }
 
 .input-box select {
@@ -108,20 +117,19 @@
     right: 8px;
     font-size: 1.2em;
     line-height: 57px;
-    color: #BBE1FA;
+    color: #495464;
 }
 
 ::placeholder {
-    color: #BBE1FA;
+    color: #495464;
 }
 
 p .register-link {
-    color: #BBE1FA;
+    color: #11BFAE;
     text-decoration: none;
 }
 
 p .register-link:hover {
-    color: #1B262C;
     text-decoration: none;
 }
 
@@ -129,7 +137,7 @@ p .register-link:hover {
 .btn#login {
     width: 100%;
     height: 45px;
-    background-color: #1B262C;
+    background-color: #495464;
     border: none;
     outline: none;
     border-radius: 6px;
@@ -139,6 +147,14 @@ p .register-link:hover {
     font-weight: 500;
     justify-content: center;
     align-items: center;
+}
+
+.login-register {
+    margin-top: 3%;
+}
+
+.login-link {
+    margin-top: 3%;
 }
 
 select {
@@ -155,11 +171,11 @@ select {
 /* <option> colors */
 option {
     color: inherit;
-    background-color: #162938;
+    background-color: #F4F4F2;
 }
 
 input:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0 50px rgb(15, 76, 117) inset;
+    -webkit-box-shadow: 0 0 0 50px #E8E8E8 inset;
     /* Change the color to your own background color */
-    -webkit-text-fill-color: #fff;
+    -webkit-text-fill-color: #495464;
 }

@@ -22,7 +22,7 @@ function SubareaSolicitado() {
     return (
         <div className="one">
             <h1>Subarea</h1>
-            <table className="table table-bordered">
+            <table className="table table-border table-hover">
                 <thead>
                     <tr>
                         <th>ID subarea</th>

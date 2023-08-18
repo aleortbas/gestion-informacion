@@ -31,22 +31,22 @@ function Metricas() {
     const SelectedComponent = componentMapping[action]
 
     return (
-        <div className="wrapper">
-            <div class="one">
+        <div className="wrapperMetricas">
+            <div className="one">
                 <div className="">
                     <div className="title">Metricas</div>
                     <div className="form">
                         <ul>
-                            <li><label><input type="radio" class="input-radio on" name="pilih" value="subareaSolicitante" checked={action === "subareaSolicitante"} onChange={onActionChange} /> Subarea mas solicitante de proyectos</label>  </li>
-                            <li><label><input type="radio" class="input-radio on" name="pilih" value="totalMediciones" checked={action === "totalMediciones"} onChange={onActionChange} /> Total de mediciones </label>  </li>
-                            <li><label><input type="radio" class="input-radio on" name="pilih" value="proyectoMasMediciones" checked={action === "proyectoMasMediciones"} onChange={onActionChange} /> Proyecto con mas mediciones </label>  </li>
-                            <li><label><input type="radio" class="input-radio on" name="pilih" value="periodicidadRepetida" checked={action === "periodicidadRepetida"} onChange={onActionChange} /> Periodicidad mas repetida</label>  </li>
-                            <li><label><input type="radio" class="input-radio on" name="pilih" value="proveedorMasSolicitado" checked={action === "proveedorMasSolicitado"} onChange={onActionChange} /> Proveedor mas solicitado</label>  </li>
+                            <li><label><input type="radio" className="input-radio on" name="pilih" value="subareaSolicitante" checked={action === "subareaSolicitante"} onChange={onActionChange} /> Subarea mas solicitante de proyectos</label>  </li>
+                            <li><label><input type="radio" className="input-radio on" name="pilih" value="totalMediciones" checked={action === "totalMediciones"} onChange={onActionChange} /> Total de mediciones </label>  </li>
+                            <li><label><input type="radio" className="input-radio on" name="pilih" value="proyectoMasMediciones" checked={action === "proyectoMasMediciones"} onChange={onActionChange} /> Proyecto con mas mediciones </label>  </li>
+                            <li><label><input type="radio" className="input-radio on" name="pilih" value="periodicidadRepetida" checked={action === "periodicidadRepetida"} onChange={onActionChange} /> Periodicidad mas repetida</label>  </li>
+                            <li><label><input type="radio" className="input-radio on" name="pilih" value="proveedorMasSolicitado" checked={action === "proveedorMasSolicitado"} onChange={onActionChange} /> Proveedor mas solicitado</label>  </li>
                         </ul>
                     </div>
                 </div>
             </div>
-            <div class="two">
+            <div className="two">
                 {SelectedComponent && <SelectedComponent />}
             </div>
         </div>

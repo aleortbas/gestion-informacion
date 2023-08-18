@@ -65,140 +65,90 @@ function Empresa() {
     }
   }
 
+  const resetForm = () => {
+    setIdEmpresa("");
+    setNombreEmpresa("");
+    setCodUnidad("");
+    setnombreUnidad("");
+    setCodArea("");
+    setNombreArea("");
+    setIdSubarea("");
+    setNombreSubarea("")
+  }
+
+
+
   return (
-    <div className="container-fluid empresa-container">
+    <div className="container-fluid gi-container">
       <div className="col-12">
         <form
           method="post"
           onSubmit={(event) => handleSubmit(event, "anadirEmpresa")}
         >
-          <h5>Formato de edicion</h5>
+          <h3>Formato de edicion</h3>
 
           <div className="row">
             <div className="col-6">
-              <div class="form-group">
-                <label class="form-label">Codigo de la empresa</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="cod_empresa"
-                  placeholder="Id empresa"
-                  name="cod_empresa"
-                  onChange={(e) => setIdEmpresa(e.target.value)}
-                />
-                <small class="form-text text-muted">
-                  Debe de ser el codigo que se encuentra en listado Excel de
-                  areas
-                </small>
+              <div className="input-box">
+                <input type="text" placeholder="Codigo de la empresa" name="codEmpresa" value={idEmpresa} onChange={(e) => setIdEmpresa(e.target.value)} required />
               </div>
             </div>
             <div className="col-6">
-              <div class="form-group">
-                <label class="form-label">Nombre de la empresa</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="nombre_empresa"
-                  placeholder="Nombre Empresa"
-                  name="nombre_empresa"
-                  onChange={(e) => setNombreEmpresa(e.target.value)}
-                />
+              <div className="input-box">
+                <input type="text" placeholder="Nombre de la empresa" name="nombreEmpresa" value={nombreEmpresa} onChange={(e) => setNombreEmpresa(e.target.value)} required />
               </div>
             </div>
           </div>
 
           <div className="row">
             <div className="col-6">
-              <div class="form-group">
-                <label class="form-label">Codigo unidad</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="cod_unidad"
-                  placeholder="Codigo de la unidad"
-                  name="cod_unidad"
-                  onChange={(e) => setCodUnidad(e.target.value)}
-                />
+              <div className="input-box">
+                <input type="text" placeholder="Codigo de unidad" name="codUnidad" value={codUnidad} onChange={(e) => setCodUnidad(e.target.value)} required />
               </div>
             </div>
             <div className="col-6">
-              <div class="form-group">
-                <label class="form-label">Nombre unidad</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="nombre_unidad"
-                  placeholder="Nombre unidad"
-                  name="nombre_unidad"
-                  onChange={(e) => setnombreUnidad(e.target.value)}
-                />
+              <div className="input-box">
+                <input type="text" placeholder="Nombre de la unidad" name="nombreUnidad" value={nombreUnidad} onChange={(e) => setnombreUnidad(e.target.value)} required />
               </div>
             </div>
           </div>
 
           <div className="row">
             <div className="col-6">
-              <div class="form-group">
-                <label class="form-label">Codigo area</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="codArea"
-                  placeholder="Codigo del area"
-                  name="cod_area"
-                  onChange={(e) => setCodArea(e.target.value)}
-                />
+              <div className="input-box">
+                <input type="text" placeholder="Codigo del area" name="codArea" value={codArea} onChange={(e) => setCodArea(e.target.value)} required />
               </div>
             </div>
             <div className="col-6">
-              <div class="form-group">
-                <label class="form-label">Nombre del area</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="nombre_area"
-                  placeholder="nombreArea"
-                  name="nombre_area"
-                  onChange={(e) => setNombreArea(e.target.value)}
-                />
+              <div className="input-box">
+                <input type="text" placeholder="Nombre del area" name="nombreArea" value={nombreArea} onChange={(e) => setNombreArea(e.target.value)} required />
               </div>
             </div>
           </div>
 
           <div className="row">
             <div className="col-6">
-              <div class="form-group">
-                <label class="form-label">Id subarea</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="idSubarea"
-                  placeholder="Id subarea"
-                  name="id_subarea"
-                  onChange={(e) => setIdSubarea(e.target.value)}
-                />
+              <div className="input-box">
+                <input type="text" placeholder="Id subarea" name="idSubarea" value={idSubarea} onChange={(e) => setIdSubarea(e.target.value)} required />
               </div>
             </div>
             <div className="col-6">
-              <div class="form-group">
-                <label class="form-label">Nombre subarea</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="nombre_subarea"
-                  placeholder="Nombre subarea"
-                  name="nombre_subarea"
-                  onChange={(e) => setNombreSubarea(e.target.value)}
-                />
+              <div className="input-box">
+                <input type="text" placeholder="Nombre de la subarea" name="nombreSubarea" value={nombreSubarea} onChange={(e) => setNombreSubarea(e.target.value)} required />
               </div>
             </div>
           </div>
 
           <div class="button-container">
-            <button type="submit" class="btn btn-paginas" id="editar">
-              Editar
+            <button type="submit" class="btn btn-paginas agregar">
+              Agregar
             </button>
-            <button type="submit" class="btn btn-paginas" id="cancelar">
+            {showElement && (
+              <button type="submit" className="btn btn-paginas agregar" >
+                Editar
+              </button>
+            )}
+            <button type="submit" class="btn btn-paginas red" onClick={resetForm}>
               Cancelar
             </button>
           </div>
@@ -236,7 +186,7 @@ function Empresa() {
                   <td>
                     <button
                       type="submit"
-                      class="btn orange"
+                      className="btn orange"
                       id="areaButton"
                       onClick={() => handleClick(item)}
                     >
@@ -249,158 +199,6 @@ function Empresa() {
           </table>
         </div>
       </div>
-
-      {showElement && (
-        <div className="row">
-          <div class="col-12 anadir-area">
-            <form
-              method="post"
-              className="formularioEmpresa"
-              onSubmit={(event) => handleSubmit(event, "editarEmpresa")}
-            >
-              <h5>Formato de edicion</h5>
-
-              <div className="row">
-                <div className="col-6">
-                  <div class="form-group">
-                    <label class="form-label">Codigo de la empresa</label>
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="cod_empresa"
-                      placeholder="Id empresa"
-                      name="cod_empresa"
-                      value={idEmpresa}
-                      onChange={(e) => setIdEmpresa(e.target.value)}
-                      readOnly
-                    />
-                    <small class="form-text text-muted">
-                      Debe de ser el codigo que se encuentra en listado Excel de
-                      areas
-                    </small>
-                  </div>
-                </div>
-                <div className="col-6">
-                  <div class="form-group">
-                    <label class="form-label">Nombre de la empresa</label>
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="nombre_empresa"
-                      placeholder="Nombre Empresa"
-                      name="nombre_empresa"
-                      value={nombreEmpresa}
-                      onChange={(e) => setNombreEmpresa(e.target.value)}
-                    />
-                  </div>
-                </div>
-              </div>
-
-              <div className="row">
-                <div className="col-6">
-                  <div class="form-group">
-                    <label class="form-label">Codigo unidad</label>
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="codUnidad"
-                      placeholder="Codigo de la unidad"
-                      name="cod_unidad"
-                      value={codUnidad}
-                      onChange={(e) => setCodUnidad(e.target.value)}
-                    />
-                  </div>
-                </div>
-                <div className="col-6">
-                  <div class="form-group">
-                    <label class="form-label">Nombre unidad</label>
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="nombre_unidad"
-                      placeholder="Nombre unidad"
-                      name="nombre_unidad"
-                      value={nombreUnidad}
-                      onChange={(e) => setnombreUnidad(e.target.value)}
-                    />
-                  </div>
-                </div>
-              </div>
-
-              <div className="row">
-                <div className="col-6">
-                  <div class="form-group">
-                    <label class="form-label">Codigo area</label>
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="codArea"
-                      placeholder="Codigo del area"
-                      name="cod_area"
-                      value={codArea}
-                      onChange={(e) => setCodArea(e.target.value)}
-                    />
-                  </div>
-                </div>
-                <div className="col-6">
-                  <div class="form-group">
-                    <label class="form-label">Nombre del area</label>
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="nombre_area"
-                      placeholder="nombreArea"
-                      name="nombre_area"
-                      value={nombreArea}
-                      onChange={(e) => setNombreArea(e.target.value)}
-                    />
-                  </div>
-                </div>
-              </div>
-
-              <div className="row">
-                <div className="col-6">
-                  <div class="form-group">
-                    <label class="form-label">Id subarea</label>
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="idSubarea"
-                      placeholder="Id subarea"
-                      name="id_subarea"
-                      value={idSubarea}
-                      onChange={(e) => setIdSubarea(e.target.value)}
-                    />
-                  </div>
-                </div>
-                <div className="col-6">
-                  <div class="form-group">
-                    <label class="form-label">Nombre subarea</label>
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="nombre_subarea"
-                      placeholder="Nombre subarea"
-                      name="nombre_subarea"
-                      value={nombreSubarea}
-                      onChange={(e) => setNombreSubarea(e.target.value)}
-                    />
-                  </div>
-                </div>
-              </div>
-
-              <div class="button-container">
-                <button type="submit" class="btn btn-paginas" id="editar">
-                  Editar
-                </button>
-                <button type="submit" class="btn btn-paginas" id="cancelar">
-                  Cancelar
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      )}
     </div>
   );
 }

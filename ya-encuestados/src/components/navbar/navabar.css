@@ -11,7 +11,7 @@ header {
   left: 0;
   width: 100%;
   padding: 20px 100px;
-  background-color: #0F4C75;
+  background-color: #E8E8E8;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -20,14 +20,14 @@ header {
 
 .logo {
   font-size: 2em;
-  color: #fff;
+  color: #495464;
   user-select: none;
 }
 
 .navigation a {
   position: relative;
   font-size: 1.1em;
-  color: #fff;
+  color: #495464;
   text-decoration: none;
   font-weight: 500;
   margin-left: 40px;
@@ -40,7 +40,7 @@ header {
   bottom: -6px;
   width: 100%;
   height: 3px;
-  background: #fff;
+  background: #495464;
   border-radius: 5px;
   transform-origin: right;
   transform: scaleX(0);
@@ -55,19 +55,19 @@ header {
 .navigation .btnLogin-popup {
   width: 130px;
   height: 50px;
-  background: transparent;
+  background: #F4F4F2;
   border: 2px solid;
   outline: none;
   border-radius: 6px;
   cursor: pointer;
   font-size: 1.1em;
-  color: #fff;
+  color: #495464;
   font-weight: 500;
   margin-left: 40px;
   transition: 1s;
 }
 
 .navigation .btnLogin-popup:hover {
-  background: #fff;
-  color: #162938;
+  background: #495464;
+  color: #F4F4F2;
 }

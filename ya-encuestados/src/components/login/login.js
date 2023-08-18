@@ -90,7 +90,7 @@ function Login() {
                     </div>
                     <button type="submit" className="btn" id="login">Iniciar sesion</button>
                     <div className="login-register">
-                        <p style={{ color: "#fff" }}>No tienes una cuenta<a href="#"
+                        <p style={{ color: "#495464" }}>No tienes una cuenta<a href="#"
                             className="register-link"> registrate</a></p>
                     </div>
                 </form>
@@ -121,7 +121,7 @@ function Login() {
                     </div>
                     <div className="input-box">
                         <span className="icon"><i className="fa-solid fa-user"></i></span>
-                        <select style={{ color: "white" }} className="custom-select" name="codigoArea" onChange={(e) => setCodigoArea(e.target.value)}>
+                        <select style={{ color: "#495464" }} className="custom-select" name="codigoArea" onChange={(e) => setCodigoArea(e.target.value)}>
                             <option value="10051">10051</option>
                             <option value="10145">10145</option>
                             <option value="10150">10150</option>
@@ -133,7 +133,7 @@ function Login() {
                     </div>
                     <button type="submit" className="btn" id="login" onClick={handleSignupClick}>Crear cuenta</button>
                     <div className="login-link">
-                        <p style={{ color: "#fff" }}>Ya tienes una<a href="#"
+                        <p style={{ color: "#495464" }}>Ya tienes una<a href="#"
                             className="register-link"> cuenta</a></p>
                     </div>
                 </form>

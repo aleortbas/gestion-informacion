@@ -19,9 +19,9 @@ function ProyectoMasMediciones() {
     }
 
     return (
-        <div className="one">
+        <div className="two">
             <h1>Total de mediciones por proyecto </h1>
-            <table className="table table-bordered">
+            <table className="table table-border table-hover">
                 <thead>
                     <tr>
                         <th>ID proyecto</th>

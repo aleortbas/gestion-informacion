@@ -79,154 +79,137 @@ function Medicion(params) {
         setEmailCliente("");
         setNoContrato("");
         setNit("");
+        setPresupuesto("")
         setMuestra("");
         setFechaInicio("");
         setFechaFin("")
     }
 
     return (
-        <div className="container-fluid proveedor-container">
+        <div className="container-fluid gi-container">
             <div className="col-12">
                 <form method="post" onSubmit={(event) => handleSubmitMedicion(event, showElement ? "editarMedicion" : "anadirMedicion")}>
                     <h5>Formato para medicion</h5>
 
                     <div className="row">
                         <div className="col-6">
-                            <div class="form-group">
-                                <label class="form-label">Id del proyecto</label>
-                                <input
-                                    type="text"
-                                    class="form-control"
+                            <div className="input-box">
+                                <input type="text"
                                     id="id_proyecto"
                                     placeholder="Id proyecto"
                                     name="id_proyecto"
                                     value={id_proyecto}
                                     onChange={(e) => setIdProyecto(e.target.value)}
                                     readOnly={showElement}
-                                />
+                                    required />
+                                <label>Id del proyecto</label>
                                 <small class="form-text text-muted">
                                     Escriba el id del proyecto al que desea agregar una medicion
                                 </small>
                             </div>
                         </div>
                         <div className="col-6">
-                            <div class="form-group">
-                                <label class="form-label">Email del cliente</label>
-                                <input
-                                    type="text"
-                                    class="form-control"
+                            <div className="input-box">
+                                <input type="text"
                                     id="email_cliente"
                                     placeholder="Email cliente"
                                     name="email_cliente"
                                     value={email_cliente}
                                     onChange={(e) => setEmailCliente(e.target.value)}
-                                />
+                                    required />
+                                <label>Email del cliente</label>
                             </div>
                         </div>
                     </div>
 
                     <div className="row">
                         <div className="col-6">
-                            <div class="form-group">
-                                <label class="form-label">Numero de contrato</label>
-                                <input
-                                    type="text"
-                                    class="form-control"
+                            <div className="input-box">
+                                <input type="text"
                                     id="no_contrato"
                                     placeholder="Numero de contrato"
                                     name="no_contrato"
                                     value={no_contrato}
-                                    onChange={(e) => setNoContrato(e.target.value)}
-                                />
+                                    onChange={(e) => setNoContrato(e.target.value)} required />
+                                <label>Numero de contrato</label>
                             </div>
                         </div>
                         <div className="col-6">
-                            <div class="form-group">
-                                <label class="form-label">NIT del proveedor</label>
-                                <input
-                                    type="text"
-                                    class="form-control"
+                            <div className="input-box">
+                                <input type="text"
                                     id="nit"
                                     placeholder="NIT"
                                     name="nit"
                                     value={nit}
-                                    onChange={(e) => setNit(e.target.value)}
-                                />
+                                    onChange={(e) => setNit(e.target.value)} required />
+                                <label>Nit del proveedor</label>
                             </div>
                         </div>
                     </div>
 
                     <div className="row">
                         <div className="col-6">
-                            <div class="form-group">
-                                <label class="form-label">Presupuesto</label>
+                            <div className="input-box">
                                 <input
                                     type="text"
-                                    class="form-control"
                                     id="presupuesto"
                                     placeholder="Presupuesto"
                                     name="presupuesto"
                                     value={presupuesto}
-                                    onChange={(e) => setPresupuesto(e.target.value)}
-                                />
+                                    onChange={(e) => setPresupuesto(e.target.value)} required />
+                                <label>Presupuesto</label>
                             </div>
                         </div>
                         <div className="col-6">
-                            <div class="form-group">
-                                <label class="form-label">Muestra</label>
+                            <div className="input-box">
                                 <input
                                     type="text"
-                                    class="form-control"
                                     id="muestra"
                                     placeholder="Muestra"
                                     name="muestra"
                                     value={muestra}
-                                    onChange={(e) => setMuestra(e.target.value)}
-                                />
+                                    onChange={(e) => setMuestra(e.target.value)} required />
+                                <label>Muestra</label>
                             </div>
                         </div>
                     </div>
 
                     <div className="row">
                         <div className="col-6">
-                            <div class="form-group">
-                                <label class="form-label">Fecha de inicio</label>
+                            <div className="input-box">
                                 <input
                                     type="text"
-                                    class="form-control"
                                     id="fecha_inicio"
                                     placeholder="Fecha Inicio de la medicion"
                                     name="fecha_inicio"
                                     value={fechaInicio}
-                                    onChange={(e) => setFechaInicio(e.target.value)}
-                                />
+                                    onChange={(e) => setFechaInicio(e.target.value)} required />
+                                <label>Muestra</label>
                             </div>
                         </div>
                         <div className="col-6">
-                            <div class="form-group">
-                                <label class="form-label">Fecha finalizacion</label>
+                            <div className="input-box">
                                 <input
                                     type="text"
-                                    class="form-control"
                                     id="fecha_fin"
                                     placeholder="Fecha de finalizacion"
                                     name="fecha_fin"
                                     value={fechaFin}
-                                    onChange={(e) => setFechaFin(e.target.value)}
-                                />
+                                    onChange={(e) => setFechaFin(e.target.value)} required />
+                                <label>Muestra</label>
                             </div>
                         </div>
                     </div>
                     <div className="button-container">
-                        <button type="submit" className="btn btn-paginas" id="agregar">
+                        <button type="submit" className="btn btn-paginas agregar" id="agregar">
                             Agregar
                         </button>
                         {showElement && (
-                            <button type="submit" className="btn btn-paginas" id="editar">
+                            <button type="submit" className="btn btn-paginas agregar" id="editar">
                                 Editar
                             </button>
                         )}
-                        <button type="button" className="btn btn-paginas" id="cancelar" onClick={resetForm}>
+                        <button type="button" className="btn btn-paginas red" id="cancelar" onClick={resetForm}>
                             Cancelar
                         </button>
                     </div>

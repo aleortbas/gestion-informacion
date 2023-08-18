@@ -10,7 +10,7 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: #1B262C;
+  background-color: #F4F4F2;
 }
 
 .btn {
@@ -26,6 +26,18 @@ body {
   transition: all 0.7s;
 }
 
+.btn.btn-paginas {
+  width: fit-content;
+}
+
+.agregar {
+  background-image: linear-gradient(150deg, white 50%, #86EE60 50%);
+}
+
+.cancelar {
+  background-image: linear-gradient(150deg, white 50%, #86EE60 50%);
+}
+
 .btn:hover {
   color: #fff;
   background-position: 100%;
@@ -35,4 +47,73 @@ body {
 .btn:active {
   transform: translate(0.5rem, 0.5rem);
   box-shadow: 0px 10px 20px -15px rgba(0, 0, 0, 0.75);
+}
+
+.red {
+  color: red;
+  background-image: linear-gradient(30deg, white 50%, red 50%);
+}
+
+.orange {
+  color: orange;
+  background-image: linear-gradient(150deg, white 50%, orange 50%);
+}
+
+.container-fluid.gi-container {
+  height: auto;
+  width: 80%;
+  margin-top: 120px;
+  margin-bottom: 20px;
+  background: #E8E8E8 !important;
+  color: #495464;
+  border-radius: 10px;
+  border: 2px solid #cacacaaa;
+  box-shadow: 2px 2px 10px #b1b2b3;
+}
+
+.table.table-border.table-hover {
+  height: 250px;
+  border-radius: 10px;
+}
+
+.table-container {
+  margin-top: 40px;
+}
+
+.thead {
+  background: red;
+  color: white;
+  font-weight: bold;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #BBBFCA;
+  color: #fff;
+}
+
+th {
+  font-weight: 900;
+  text-transform: uppercase;
+  background: #495464;
+}
+
+.anadir-area {
+  display: flex;
+  justify-content: center;
+}
+
+.formularioEmpresa {
+  width: 750px;
+}
+
+.button-container {
+  display: flex;
+}
+
+.button-container button {
+  margin-right: 25px;
+  margin-bottom: 20px;
+  /* Adjust spacing between buttons as needed */
 }
